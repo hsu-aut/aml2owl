@@ -63,7 +63,7 @@
 									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
 								<transformer
 									implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-									<mainClass>cli.Plc2SkillCli</mainClass>
+									<mainClass>aml2owl.cli.AmlOwlCli</mainClass>
 								</transformer>
 							</transformers>
 						</configuration>
