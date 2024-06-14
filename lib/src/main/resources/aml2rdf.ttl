@@ -1,0 +1,838 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://example.org/rules/> .
+@prefix schema: <http://schema.org/> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix aml: <https://w3id.org/i40/aml#> .
+@prefix cc: <http://creativecommons.org/ns#> .
+@prefix cp: <http://www.ontologydesignpatterns.org/cp/owl/partof.owl#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/spec/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix voaf: <http://purl.org/vocommons/voaf#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix terms: <http://purl.org/dc/terms/> .
+@prefix om: <http://www.ontology-of-units-of-measure.org/resource/om-2#> .
+# @base <https://w3id.org/i40/aml#> .
+
+# shell command to execute mappings:
+# java -jar .\rmlmapper-6.1.3-r367-all.jar -c .\config.properties
+
+#CAEXFile Mappings:
+:CAEXFileTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@FileName}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:CAEXFile
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate aml:hasSchemaVersion;
+        rr:objectMap [
+            rml:reference "@SchemaVersion"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+            rml:reference "@FileName"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasInstanceHierarchy;
+        rr:objectMap [
+            rr:parentTriplesMap :InstanceHierarchyTriplesMap;
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasAttributeTypeLib;
+        rr:objectMap [
+            rr:parentTriplesMap :AttributeTypeLibTriplesMap;
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasRoleClassLib;
+        rr:objectMap [
+            rr:parentTriplesMap :RoleClassLibTriplesMap;
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasSystemUnitClassLib;
+        rr:objectMap [
+            rr:parentTriplesMap :SystemUnitClassLibTriplesMap;
+        ]     
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasInterfaceClassLib;
+        rr:objectMap [
+            rr:parentTriplesMap :InterfaceClassLibTriplesMap;
+        ]                
+    ].
+
+
+#InstanceHierarchy Mappings:
+:InstanceHierarchyTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/InstanceHierarchy"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@Name}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label; 
+        rr:predicate aml:hasName;
+        # rr:predicate aml:hasNameIH;                     
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:InstanceHierarchy
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasInternalElement;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{.//InternalElement/@ID}"
+        ];
+    ].
+
+#InternalElements
+:InternalElementTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@ID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:InternalElement
+        ]
+    ]; 
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameIE;
+        rr:predicate aml:hasName;        
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];
+    rr:predicateObjectMap [
+        # rr:predicate rdf:type;
+        rr:predicate aml:hasBaseSystemUnitClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{@RefBaseSystemUnitPath}";
+        ]        
+    ];
+    rr:predicateObjectMap [
+        # rr:predicate aml:hasInterfaceIE;
+        rr:predicate aml:hasInterface;        
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./ExternalInterface/@ID}"          
+        ]
+    ]; 
+    rr:predicateObjectMap [
+        rr:predicate "http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart";
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./InternalElement/@ID}"                        
+        ]
+    ]; 
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./RoleRequirements/@RefBaseRoleClassPath}"          
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        # rr:predicate aml:hasSupportedRoleClassIE; 
+        rr:predicate aml:hasSupportedRoleClass;                
+        rr:objectMap [  
+            rr:template "https://w3id.org/i40/aml#{./SupportedRoleClass/@RefRoleClassPath}"                       
+        ]
+    ];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasAttributeIE;
+        rr:predicate aml:hasAttribute;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]
+    ]. 
+
+#ExternalInterface
+:ExternalInterfaceTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//ExternalInterface"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@ID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:ExternalInterface
+        ]
+    ]; 
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameEI;
+        rr:predicate aml:hasName;        
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:predicate aml:hasBaseInterfaceClass;        
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}"
+        ]
+    ];
+    #TODO: Check nestedInterfaces
+	rr:predicateObjectMap [
+        rr:predicate aml:hasPart;        
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{./ExternalInterface/@ID}"
+        ]
+	];      
+    rr:predicateObjectMap [
+        # rr:predicate aml:hasAttributeEI; 
+        rr:predicate aml:hasAttribute;            
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]        
+    ]. 
+
+#NominalScaledTypeConstraints Mapping
+:NominalScaledTypeConstraintTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//Attribute/Constraint/NominalScaledType"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{../string-join(ancestor-or-self::*/@Name, '/')}";
+		rr:class aml:NominalScaledConstraint
+    ];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameConstraint;
+        rr:predicate aml:hasName;
+        rr:objectMap [
+            rml:reference "../@Name"
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRequiredValueNominal;
+        rr:objectMap [
+            rml:reference ".//RequiredValue";
+			rr:datatype xsd:string
+        ]
+	].
+	
+#OrdinalScaledTypeConstraints
+:OrdinalScaledTypeConstraintTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//Attribute/Constraint/OrdinalScaledType"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{../string-join(ancestor-or-self::*/@Name, '/')}";
+		rr:class aml:OrdinalScaledConstraint
+    ];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameConstraint;
+        rr:predicate aml:hasName;
+        rr:objectMap [
+            rml:reference "../@Name"
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasMinValue;
+        rr:objectMap [
+            rml:reference ".//RequiredMinValue";
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasMaxValue;
+        rr:objectMap [
+            rml:reference ".//RequiredMaxValue";
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRequiredValueOrdinal;
+        rr:objectMap [
+            rml:reference ".//RequiredValue";
+			rr:datatype xsd:string
+        ]
+	].
+
+#UnknownTypeConstraints 
+:UnknownTypeConstraintTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//Attribute/Constraint/UnknownType"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{../string-join(ancestor-or-self::*/@Name, '/')}";
+		rr:class aml:UnknownTypeConstraint
+    ];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameConstraint;
+        rr:predicate aml:hasName;
+        rr:objectMap [
+            rml:reference "../@Name"
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRequirement;
+        rr:objectMap [
+            rml:reference ".//Requirements";
+			rr:datatype xsd:string
+        ]
+	].
+
+#Attribute  Mapping
+:AttributeTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//Attribute"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
+		rr:class aml:Attribute
+    ];
+    
+    rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameAttribute;
+        rr:predicate aml:hasName;        
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasPart;        
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"
+        ]
+	];    
+    rr:predicateObjectMap [
+        rr:predicate aml:hasAttributeDataType;
+        rr:predicate aml:hasDataType;        
+        rr:objectMap [
+            rml:reference "@AttributeDataType";
+			rr:datatype xsd:string
+        ]
+    ];    
+    # Option 1: Uses the Unit definitions from the Ontology of Unit of Measures. 
+    # For a semantically rich description of Units, this is the preferred method. 
+    # Assumption: All Unit definitions in the AML-File use the unit names from the ontology of units of measure. 
+    # Disabled for compatibility. Uncomment to enable. 
+	# rr:predicateObjectMap [
+    #     rr:predicate om:hasUnit;
+    #     rr:objectMap [
+	# 		rr:template "http://www.ontology-of-units-of-measure.org/resource/om-2#{@Unit}";
+    #     ]
+	# ];
+    # Option 2: Use the unit as a data property. 
+    # Included for compatibility with aml-files, that do not use the unit names from the ontology of units of measure. 
+	rr:predicateObjectMap [
+        rr:predicate aml:hasUnitName;
+        rr:objectMap [
+            rml:reference "@Unit";
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasAttributeValue;
+        rr:objectMap [
+            rml:reference "./Value";
+        ]
+	];
+	# rr:predicateObjectMap [
+    #     rr:predicate aml:hasUnitValue;
+    #     rr:objectMap [
+    #     rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}"; 
+    #     # rr:template "https://w3id.org/i40/aml#{string-join((ancestor-or-self::*/@Name, 'Measure'), '/')}";              
+    #     ]
+	# ];    
+	rr:predicateObjectMap [
+        rr:predicate aml:hasAttributeDescription;
+        rr:objectMap [
+            rml:reference "./Description";
+			rr:datatype xsd:string
+        ]
+	];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasDefaultValueAttribute;
+        rr:predicate aml:hasDefaultValue;        
+        rr:objectMap [
+            rml:reference "./DefaultValue";
+			rr:datatype xsd:string
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRefAttributeType;
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{@RefAttributeType}";
+        ];
+    ];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasConstraint;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./Constraint/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]          
+    ];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasRefSemAttribute;
+        rr:predicate aml:hasSemanticRef;        
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./RefSemantic/@CorrespondingAttributePath}";
+        ]          
+    ];    
+    . 
+#Ontology of Units of Measure Mapping
+:MeasureTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        # rml:iterator "/CAEXFile//Attribute[@AttributeDataType = 'xs:unsignedInt' or @AttributeDataType = 'xs:double']"
+        rml:iterator "/CAEXFile//Attribute[matches(@AttributeDataType, '^(xs:double|xs:float|xs:int|xs:long|xs:short|xs:decimal|xs:integer|xs:nonNegativeInteger|xs:positiveInteger|xs:nonPositiveInteger|xs:negativeInteger|xs:unsignedInt|xs:unsignedLong|xs:unsignedShort)$')]"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
+		rr:class om:Measure
+    ];
+	rr:predicateObjectMap [
+        rr:predicate om:hasUnit;
+        rr:objectMap [
+			rr:template "http://www.ontology-of-units-of-measure.org/resource/om-2#{@Unit}";
+        ]
+	];   
+	rr:predicateObjectMap [
+        rr:predicate om:hasNumericalValue;
+        rr:objectMap [
+			rml:reference "./Value";
+            rr:datatype "xsd:float";
+        ]
+	].   
+
+#InternalLink Mapping
+:InternalLinkTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement/InternalLink"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@Name}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:InternalLink
+        ]
+    ]; 
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameIL;
+        rr:predicate aml:hasName;                
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];    
+    rr:predicateObjectMap [
+        # rr:predicate aml:hasRefPartnerSideA_Interface;
+        rr:predicate aml:hasRefPartnerSideA;        
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{@RefPartnerSideA}";  
+        ]
+    ];
+    rr:predicateObjectMap [
+        # rr:predicate aml:hasRefPartnerSideB_Interface;
+        rr:predicate aml:hasRefPartnerSideB;        
+        rr:objectMap [ 
+            rr:template "https://w3id.org/i40/aml#{@RefPartnerSideB}";                          
+        ]
+    ].
+
+#------------------------------MAPPING InterfaceClassLib------------------------------
+#InterfaceClassLib Mapping:
+:InterfaceClassLibTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/InterfaceClassLib"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@Name}";
+		rr:class aml:InterfaceClassLib
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label; 
+        rr:predicate aml:hasName;
+        # rr:predicate aml:hasNameICL;                     
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];    
+	
+	rr:predicateObjectMap [
+		#hasInterfaceClass (Object property) part of AML Ontology
+        rr:predicate aml:hasInterfaceClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{.//InterfaceClass/string-join(ancestor-or-self::*/@Name, '/')}";
+			rr:class aml:InterfaceClass
+        ]
+    ].
+
+#InterfaceClasses Mapping:
+:InterfaceClassTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/InterfaceClassLib//InterfaceClass"
+    ];
+	
+	rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
+    ];   
+	rr:predicateObjectMap [
+        rr:predicate rdfs:subClassOf;
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}"; 
+        ];
+        rr:objectMap [
+            rr:constant <https://w3id.org/i40/aml#InterfaceClass>;          
+        ]        
+	];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameIC;
+        rr:predicate aml:hasName;        
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];
+	# rr:predicateObjectMap [
+    #     rr:predicate aml:hasRefBaseClassPathIC;
+    #     rr:objectMap [
+	# 		rml:reference "@RefBaseClassPath"
+    #     ]
+	# ];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasAttribute;        
+        # rr:predicate aml:hasAttributeIC;    
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]        
+	].
+
+#------------------------------MAPPING SystemUnitClassLib------------------------------
+
+#SystemUnitClassLib Mapping:
+:SystemUnitClassLibTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/SystemUnitClassLib"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@Name}";
+		rr:class aml:SystemUnitClassLib
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label; 
+        rr:predicate aml:hasName;
+        # rr:predicate aml:hasNameSUCL;                     
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ]; 
+
+	rr:predicateObjectMap [
+        rr:predicate aml:hasSystemUnitClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{.//SystemUnitClass/string-join(ancestor-or-self::*/@Name, '/')}";
+			rr:class aml:SystemUnitClass
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasInternalElement;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{.//InternalElement/@ID}"
+        ];        
+    ].
+	
+#SystemUnitClasses Mapping:
+:SystemUnitClassTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/SystemUnitClassLib//SystemUnitClass"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
+		rr:class aml:SystemUnitClass
+    ];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasPartSUC;
+        rr:predicate aml:hasPart;        
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{./InternalElement/@ID}"
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameSUC;
+        rr:predicate aml:hasName;        
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasID;
+        # rr:predicate aml:hasIDSUC;        
+        rr:objectMap [
+            rml:reference "@ID"
+        ]
+    ];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasSupportedRoleClassSUC;
+        rr:predicate aml:hasSupportedRoleClass;        
+        rr:predicate rdf:type;
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{./SupportedRoleClass/@RefRoleClassPath}"
+        ]
+	];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasInterfaceSUC;
+        rr:predicate aml:hasInterface;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./ExternalInterface/@ID}"          
+        ]        
+	];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasAttributeSUC; 
+        rr:predicate aml:hasAttribute;              
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]        
+	].
+
+#------------------------------MAPPING RoleClassLib------------------------------
+:RoleClassLibTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//RoleClassLib"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@Name}";
+		rr:class aml:RoleClassLib
+    ];
+	
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label; 
+        rr:predicate aml:hasName;
+        # rr:predicate aml:hasNameRCL;                     
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];     
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRoleClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{.//RoleClass/string-join(ancestor-or-self::*/@Name, '/')}";
+			# rr:class aml:RoleClass
+        ]
+    ].
+	
+# RoleClasses Mapping:
+:RoleClassTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/RoleClassLib//RoleClass"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
+    ];
+	
+	rr:predicateObjectMap [
+        rr:predicate rdfs:subClassOf;
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}";                 
+        ];
+        rr:objectMap [
+            rr:constant <https://w3id.org/i40/aml#RoleClass>;          
+        ]   
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameRC;
+        rr:predicate aml:hasName;        
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ];
+	# rr:predicateObjectMap [
+    #     rr:predicate aml:hasRefBaseClassPathRC;
+    #     rr:objectMap [
+	# 		rml:reference "@RefBaseClassPath";
+    #     ]
+	# ];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasInterfaceRC;
+        rr:predicate aml:hasInterface;        
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./ExternalInterface/@ID}"
+		]        
+	];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasAttributeRC;  
+        rr:predicate aml:hasAttribute;             
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]        
+	].
+	
+#------------------------------MAPPING AttributeTypeLib------------------------------
+:AttributeTypeLibTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//AttributeTypeLib"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@Name}";
+		rr:class aml:AttributeTypeLib;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label; 
+        rr:predicate aml:hasName;
+        # rr:predicate aml:hasNameATL;                     
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+    ]; 		
+    rr:predicateObjectMap [
+		#hasAttributeType (Object property) part of AML Ontology
+        rr:predicate aml:hasAttributeType;
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{.//AttributeType/string-join(ancestor-or-self::*/@Name, '/')}";
+			# rr:class aml:AttributeType
+        ]
+    ].
+
+# AttributeType Mapping:
+:AttributeTypeTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/AttributeTypeLib//AttributeType"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
+    ]; 
+	rr:predicateObjectMap [
+        rr:predicate rdfs:subClassOf;
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{@RefAttributeType}";             
+        ];
+        rr:objectMap [
+            rr:constant <https://w3id.org/i40/aml#AttributeType>;          
+        ]  
+	];
+	rr:predicateObjectMap [
+		rr:predicate rdfs:label;
+        # rr:predicate aml:hasNameAT;
+        rr:predicate aml:hasName;
+        rr:objectMap [
+            rml:reference "@Name"
+        ]
+	];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasDataTypeAT;
+        rr:predicate aml:hasDataType;        
+        rr:objectMap [
+            rml:reference "@AttributeDataType";
+			rr:datatype xsd:string
+        ]
+	];
+    # Option 1: Uses the Unit definitions from the Ontology of Unit of Measures. 
+    # For a semantically rich description of Units, this is the preferred method. 
+    # Assumption: All Unit definitions in the AML-File use the unit names from the ontology of units of measure. 
+    # Disabled for compatibility. Uncomment to enable.   
+	# rr:predicateObjectMap [
+    #     rr:predicate aml:hasUnit;
+    #     rr:objectMap [
+	# 		rr:template "http://www.ontology-of-units-of-measure.org/resource/om-2#{@Unit}";
+    #     ]
+	# ];
+    # Option 2: Use the unit as a data property. 
+    # Included for compatibility with aml-files, that do not use the unit names from the ontology of units of measure. 
+	rr:predicateObjectMap [
+        rr:predicate aml:hasUnitName;
+        rr:objectMap [
+            rml:reference "@Unit";
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRefAttributeType;
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{@RefAttributeType}";
+        ];
+    ];
+	rr:predicateObjectMap [
+        # rr:predicate aml:hasAttributeAT;
+        rr:predicate aml:hasAttribute;        
+        rr:objectMap [
+            rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]        
+	].
