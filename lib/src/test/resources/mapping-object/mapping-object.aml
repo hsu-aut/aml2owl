@@ -1,0 +1,25 @@
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="PPR_right_with_mirror.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <InstanceHierarchy Name="PPRExampleInstanceHierarchy">
+    <InternalElement Name="Screw" ID="ad5db25c-0f73-4e9f-8782-0ca28e319c43">
+      <Attribute Name="Vendor" AttributeDataType="xs:string">
+        <Value>ScrewVendor</Value>
+      </Attribute>
+      <ExternalInterface Name="RelatedProcess" ID="92cb2e82-03c0-4b8a-9da7-e1c1bc5c488a">
+      </ExternalInterface>
+      <RoleRequirements RefBaseRoleClassPath="PPRExampleRoleClassLib/PPRProduct">
+        <MappingObject>
+          <AttributeNameMapping SystemUnitAttributeName="Vendor" RoleAttributeName="Vendor" />
+          <InterfaceIDMapping SystemUnitInterfaceID="92cb2e82-03c0-4b8a-9da7-e1c1bc5c488a" RoleInterfaceID="f7ca2468-bc8a-4f26-8b63-e21fd9f01cb7" />
+        </MappingObject>
+      </RoleRequirements>
+    </InternalElement>
+  </InstanceHierarchy>
+  <RoleClassLib Name="PPRExampleRoleClassLib">
+    <RoleClass Name="PPRProduct">
+      <Attribute Name="Vendor" AttributeDataType="xs:string">
+      </Attribute>
+      <ExternalInterface Name="RelatedProcess" ID="f7ca2468-bc8a-4f26-8b63-e21fd9f01cb7" RefBaseClassPath="PPRExampleInterfaceClassLib/ProductProcessRelation">
+      </ExternalInterface>
+    </RoleClass>
+  </RoleClassLib>
+</CAEXFile>

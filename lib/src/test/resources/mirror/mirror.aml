@@ -1,0 +1,14 @@
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="PPR_right_with_mirror.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <InstanceHierarchy Name="PPRExampleInstanceHierarchy">
+    <InternalElement Name="Screw" ID="ad5db25c-0f73-4e9f-8782-0ca28e319c43" RefBaseSystemUnitPath="PPRExampleSystemUnitClassLib/PPRProductSUC">
+    </InternalElement>
+  </InstanceHierarchy>
+  <InstanceHierarchy Name="ProductHierarchy">
+    <InternalElement Name="Screw" ID="01fe88c7-9be1-4b48-afa3-c69d326561b6" RefBaseSystemUnitPath="ad5db25c-0f73-4e9f-8782-0ca28e319c43" />
+  </InstanceHierarchy>
+  <SystemUnitClassLib Name="PPRExampleSystemUnitClassLib">
+    <Version>0</Version>
+    <SystemUnitClass Name="PPRProductSUC" ID="5717a780-5d5e-4970-8513-e45202f8114b">
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+</CAEXFile>

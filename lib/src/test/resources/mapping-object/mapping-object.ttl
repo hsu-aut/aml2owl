@@ -1,0 +1,54 @@
+
+<https://w3id.org/i40/aml#92cb2e82-03c0-4b8a-9da7-e1c1bc5c488a> a <https://w3id.org/i40/aml#ExternalInterface>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "RelatedProcess";
+  <https://w3id.org/i40/aml#hasName> "RelatedProcess" .
+
+<https://w3id.org/i40/aml#PPRExampleInstanceHierarchy> a <https://w3id.org/i40/aml#InstanceHierarchy>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "PPRExampleInstanceHierarchy";
+  <https://w3id.org/i40/aml#hasInternalElement> <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43>;
+  <https://w3id.org/i40/aml#hasName> "PPRExampleInstanceHierarchy" .
+
+<https://w3id.org/i40/aml#PPRExampleInstanceHierarchy%2FScrew%2FVendor> a <https://w3id.org/i40/aml#Attribute>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Vendor";
+  <https://w3id.org/i40/aml#hasAttributeDataType> "xs:string";
+  <https://w3id.org/i40/aml#hasAttributeValue> "ScrewVendor";
+  <https://w3id.org/i40/aml#hasDataType> "xs:string";
+  <https://w3id.org/i40/aml#hasName> "Vendor" .
+
+<https://w3id.org/i40/aml#PPRExampleRoleClassLib> a <https://w3id.org/i40/aml#RoleClassLib>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "PPRExampleRoleClassLib";
+  <https://w3id.org/i40/aml#hasName> "PPRExampleRoleClassLib";
+  <https://w3id.org/i40/aml#hasRoleClass> <https://w3id.org/i40/aml#PPRExampleRoleClassLib%2FPPRProduct> .
+
+<https://w3id.org/i40/aml#PPRExampleRoleClassLib%2FPPRProduct> <http://www.w3.org/2000/01/rdf-schema#label>
+    "PPRProduct";
+  <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#RoleClass>;
+  <https://w3id.org/i40/aml#hasAttribute> <https://w3id.org/i40/aml#PPRExampleRoleClassLib%2FPPRProduct%2FVendor>;
+  <https://w3id.org/i40/aml#hasInterface> <https://w3id.org/i40/aml#f7ca2468-bc8a-4f26-8b63-e21fd9f01cb7>;
+  <https://w3id.org/i40/aml#hasName> "PPRProduct" .
+
+<https://w3id.org/i40/aml#PPRExampleRoleClassLib%2FPPRProduct%2FVendor> a <https://w3id.org/i40/aml#Attribute>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Vendor";
+  <https://w3id.org/i40/aml#hasAttributeDataType> "xs:string";
+  <https://w3id.org/i40/aml#hasDataType> "xs:string";
+  <https://w3id.org/i40/aml#hasName> "Vendor" .
+
+<https://w3id.org/i40/aml#PPR_right_with_mirror.aml> a <https://w3id.org/i40/aml#CAEXFile>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "PPR_right_with_mirror.aml";
+  <https://w3id.org/i40/aml#hasInstanceHierarchy> <https://w3id.org/i40/aml#PPRExampleInstanceHierarchy>;
+  <https://w3id.org/i40/aml#hasRoleClassLib> <https://w3id.org/i40/aml#PPRExampleRoleClassLib>;
+  <https://w3id.org/i40/aml#hasSchemaVersion> "3.0" .
+
+<https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43> a <https://w3id.org/i40/aml#InternalElement>,
+    <https://w3id.org/i40/aml#PPRExampleRoleClassLib%2FPPRProduct>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Screw";
+  <https://w3id.org/i40/aml#hasAttribute> <https://w3id.org/i40/aml#PPRExampleInstanceHierarchy%2FScrew%2FVendor>;
+  <https://w3id.org/i40/aml#hasAttributeIE> <https://w3id.org/i40/aml#PPRExampleInstanceHierarchy%2FScrew%2FVendor>;
+  <https://w3id.org/i40/aml#hasInterface> <https://w3id.org/i40/aml#92cb2e82-03c0-4b8a-9da7-e1c1bc5c488a>;
+  <https://w3id.org/i40/aml#hasName> "Screw" .
+
+<https://w3id.org/i40/aml#f7ca2468-bc8a-4f26-8b63-e21fd9f01cb7> a <https://w3id.org/i40/aml#ExternalInterface>,
+    <https://w3id.org/i40/aml#PPRExampleInterfaceClassLib%2FProductProcessRelation>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "RelatedProcess";
+  <https://w3id.org/i40/aml#hasBaseInterfaceClass> <https://w3id.org/i40/aml#PPRExampleInterfaceClassLib%2FProductProcessRelation>;
+  <https://w3id.org/i40/aml#hasName> "RelatedProcess" .
