@@ -167,6 +167,7 @@
     ]; 
     rr:predicateObjectMap [
         rr:predicate rdf:type;
+        rr:predicate aml:hasRoleRequirement;
         rr:objectMap [
             rr:template "https://w3id.org/i40/aml#{./RoleRequirements/@RefBaseRoleClassPath}"          
         ]
@@ -184,6 +185,80 @@
         rr:predicate aml:hasAttribute;
         rr:objectMap [
             rr:template "https://w3id.org/i40/aml#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+        ]
+    ]. 
+
+# MasterObjects
+:MasterObjectTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement[@RefBaseSystemUnitPath = //InternalElement/@ID]" 
+        # only select Internal elements, that have a RefBaseSystemUnitPath, that refers to the ID of an InternalElement
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@ID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasMasterObject;                
+        rr:objectMap [  
+            rr:template "https://w3id.org/i40/aml#{@RefBaseSystemUnitPath}"                       
+        ]
+    ].  
+
+# MirrorObjects
+:MirrorObjectTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement[@RefBaseSystemUnitPath = //InternalElement/@ID]" 
+        # only select Internal elements, that have a RefBaseSystemUnitPath, that refers to the ID of an InternalElement
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@RefBaseSystemUnitPath}"; #Link from RefSystemUnitPath to ID
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasMirrorObject;                
+        rr:objectMap [  
+            rr:template "https://w3id.org/i40/aml#{@ID}"                       
+        ]
+    ]. 
+
+# MappingObjectsRoleRequirementsAttributes
+:MappingObjectRoleRequirementAttributesTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//RoleRequirements/MappingObject/AttributeNameMapping" 
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{concat(../../../string-join(ancestor-or-self::*/@Name, '/'), '/', @SystemUnitAttributeName)}"; 
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasMappingObject;                
+        rr:objectMap [  
+            rr:template "https://w3id.org/i40/aml#{concat(../../@RefBaseRoleClassPath, '/', @RoleAttributeName)}"
+        ]
+    ].
+
+# MappingObjectsRoleRequirementsInterfaces
+:MappingObjectRoleRequirementInterfaceTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//RoleRequirements/MappingObject/InterfaceIDMapping" 
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@SystemUnitInterfaceID}"; 
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasMappingObject;                
+        rr:objectMap [  
+            rr:template "https://w3id.org/i40/aml#{@RoleInterfaceID}"
         ]
     ]. 
 
@@ -214,7 +289,8 @@
     ];
     rr:predicateObjectMap [
         rr:predicate rdf:type;
-        rr:predicate aml:hasBaseInterfaceClass;        
+        rr:predicate aml:hasBaseInterfaceClass;
+        rr:predicate aml:hasRefBaseClass;        
         rr:objectMap [
 			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}"
         ]
@@ -538,6 +614,7 @@
     ];   
 	rr:predicateObjectMap [
         rr:predicate rdfs:subClassOf;
+        rr:predicate aml:hasRefBaseClass;
         rr:objectMap [
 			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}"; 
         ];
@@ -553,12 +630,6 @@
             rml:reference "@Name"
         ]
     ];
-	# rr:predicateObjectMap [
-    #     rr:predicate aml:hasRefBaseClassPathIC;
-    #     rr:objectMap [
-	# 		rml:reference "@RefBaseClassPath"
-    #     ]
-	# ];
 	rr:predicateObjectMap [
         rr:predicate aml:hasAttribute;        
         # rr:predicate aml:hasAttributeIC;    
@@ -704,6 +775,7 @@
 	
 	rr:predicateObjectMap [
         rr:predicate rdfs:subClassOf;
+        rr:predicate aml:hasRefBaseClass;
         rr:objectMap [
 			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}";                 
         ];
@@ -719,12 +791,6 @@
             rml:reference "@Name"
         ]
     ];
-	# rr:predicateObjectMap [
-    #     rr:predicate aml:hasRefBaseClassPathRC;
-    #     rr:objectMap [
-	# 		rml:reference "@RefBaseClassPath";
-    #     ]
-	# ];
 	rr:predicateObjectMap [
         # rr:predicate aml:hasInterfaceRC;
         rr:predicate aml:hasInterface;        
