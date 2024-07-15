@@ -147,7 +147,7 @@
     ];
     rr:predicateObjectMap [
         # rr:predicate rdf:type;
-        rr:predicate aml:hasBaseSystemUnitClass;
+        rr:predicate aml:hasRefBaseSystemUnitClass;
         rr:objectMap [
             rr:template "https://w3id.org/i40/aml#{@RefBaseSystemUnitPath}";
         ]        
@@ -614,14 +614,24 @@
     ];   
 	rr:predicateObjectMap [
         rr:predicate rdfs:subClassOf;
-        rr:predicate aml:hasRefBaseClass;
-        rr:objectMap [
-			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}"; 
-        ];
         rr:objectMap [
             rr:constant <https://w3id.org/i40/aml#InterfaceClass>;          
         ]        
 	];
+
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRefBaseClass;
+        rr:predicate rdfs:subClassOf;
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}"; 
+        ];    
+	];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasPart; #TODO: Decide on Use of aml:hasPart vs aml:hasInterface       
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{./ExternalInterface/@ID}"
+        ]
+	];    
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
         # rr:predicate aml:hasNameIC;
@@ -687,6 +697,12 @@
         rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
 		rr:class aml:SystemUnitClass
     ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasRefBaseClass;        
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}"
+        ]
+	];
 	rr:predicateObjectMap [
         # rr:predicate aml:hasPartSUC;
         rr:predicate aml:hasPart;        
@@ -775,14 +791,19 @@
 	
 	rr:predicateObjectMap [
         rr:predicate rdfs:subClassOf;
-        rr:predicate aml:hasRefBaseClass;
-        rr:objectMap [
-			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}";                 
-        ];
         rr:objectMap [
             rr:constant <https://w3id.org/i40/aml#RoleClass>;          
         ]   
 	];
+
+	rr:predicateObjectMap [
+        rr:predicate aml:hasRefBaseClass;
+        rr:predicate rdfs:subClassOf;        
+        rr:objectMap [
+			rr:template "https://w3id.org/i40/aml#{@RefBaseClassPath}";                 
+        ]  
+	];
+
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
         # rr:predicate aml:hasNameRC;
@@ -855,6 +876,7 @@
             rr:constant <https://w3id.org/i40/aml#AttributeType>;          
         ]  
 	];
+    #TODO: Add RefAttributeType as ObjectProperty
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
         # rr:predicate aml:hasNameAT;
