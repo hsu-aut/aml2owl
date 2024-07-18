@@ -1,0 +1,17 @@
+
+<https://w3id.org/i40/aml#AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0>
+  a <https://w3id.org/i40/aml#InstanceHierarchy>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0";
+  <https://w3id.org/i40/aml#hasName> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" .
+
+<https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib> a <https://w3id.org/i40/aml#RoleClassLib>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "AutomationMLBaseRoleClassLib";
+  <https://w3id.org/i40/aml#hasName> "AutomationMLBaseRoleClassLib" .
+
+<https://w3id.org/i40/aml#Test> a <https://w3id.org/i40/aml#AttributeTypeLib>, <https://w3id.org/i40/aml#SystemUnitClassLib>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Test";
+  <https://w3id.org/i40/aml#hasName> "Test" .
+
+<https://w3id.org/i40/aml#VDAInterfaceClassLib> a <https://w3id.org/i40/aml#InterfaceClassLib>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "VDAInterfaceClassLib";
+  <https://w3id.org/i40/aml#hasName> "VDAInterfaceClassLib" .

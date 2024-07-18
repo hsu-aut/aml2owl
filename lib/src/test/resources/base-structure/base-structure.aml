@@ -1,0 +1,7 @@
+<CAEXFile>
+  <InstanceHierarchy Name="AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0"/>
+  <InterfaceClassLib Name="VDAInterfaceClassLib"/>
+  <RoleClassLib Name="AutomationMLBaseRoleClassLib"/>
+  <SystemUnitClassLib Name="Test"/>
+  <AttributeTypeLib Name="Test"/>
+</CAEXFile>
