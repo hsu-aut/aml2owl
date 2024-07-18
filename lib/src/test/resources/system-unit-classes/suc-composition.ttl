@@ -136,20 +136,23 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "ExternalData";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseRole>,
     <https://w3id.org/i40/aml#RoleClass>;
-  <https://w3id.org/i40/aml#hasName> "ExternalData" .
+  <https://w3id.org/i40/aml#hasName> "ExternalData";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseRole> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FFacet>
   <http://www.w3.org/2000/01/rdf-schema#label> "Facet";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseRole>,
     <https://w3id.org/i40/aml#RoleClass>;
-  <https://w3id.org/i40/aml#hasName> "Facet" .
+  <https://w3id.org/i40/aml#hasName> "Facet";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseRole> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FGroup>
   <http://www.w3.org/2000/01/rdf-schema#label> "Group";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseRole>,
     <https://w3id.org/i40/aml#RoleClass>;
   <https://w3id.org/i40/aml#hasAttribute> <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FGroup%2FAssociatedFacet>;
-  <https://w3id.org/i40/aml#hasName> "Group" .
+  <https://w3id.org/i40/aml#hasName> "Group";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseRole> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FGroup%2FAssociatedFacet>
   a <https://w3id.org/i40/aml#Attribute>, <https://w3id.org/i40/aml#AutomationMLBaseAttributeTypeLib%2FAssociatedFacet>;
@@ -163,43 +166,50 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "Process";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseRole>,
     <https://w3id.org/i40/aml#RoleClass>;
-  <https://w3id.org/i40/aml#hasName> "Process" .
+  <https://w3id.org/i40/aml#hasName> "Process";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseRole> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FProduct>
   <http://www.w3.org/2000/01/rdf-schema#label> "Product";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseRole>,
     <https://w3id.org/i40/aml#RoleClass>;
-  <https://w3id.org/i40/aml#hasName> "Product" .
+  <https://w3id.org/i40/aml#hasName> "Product";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseRole> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FResource>
   <http://www.w3.org/2000/01/rdf-schema#label> "Resource";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseRole>,
     <https://w3id.org/i40/aml#RoleClass>;
-  <https://w3id.org/i40/aml#hasName> "Resource" .
+  <https://w3id.org/i40/aml#hasName> "Resource";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseRole> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure>
   <http://www.w3.org/2000/01/rdf-schema#label> "Structure";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseRole>,
     <https://w3id.org/i40/aml#RoleClass>;
-  <https://w3id.org/i40/aml#hasName> "Structure" .
+  <https://w3id.org/i40/aml#hasName> "Structure";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseRole> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure%2FProcessStructure>
   <http://www.w3.org/2000/01/rdf-schema#label> "ProcessStructure";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#RoleClass>,
     <https://w3id.org/i40/aml#Structure>;
-  <https://w3id.org/i40/aml#hasName> "ProcessStructure" .
+  <https://w3id.org/i40/aml#hasName> "ProcessStructure";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#Structure> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure%2FProductStructure>
   <http://www.w3.org/2000/01/rdf-schema#label> "ProductStructure";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#RoleClass>,
     <https://w3id.org/i40/aml#Structure>;
-  <https://w3id.org/i40/aml#hasName> "ProductStructure" .
+  <https://w3id.org/i40/aml#hasName> "ProductStructure";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#Structure> .
 
 <https://w3id.org/i40/aml#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure%2FResourceStructure>
   <http://www.w3.org/2000/01/rdf-schema#label> "ResourceStructure";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#RoleClass>,
     <https://w3id.org/i40/aml#Structure>;
-  <https://w3id.org/i40/aml#hasName> "ResourceStructure" .
+  <https://w3id.org/i40/aml#hasName> "ResourceStructure";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#Structure> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib> a <https://w3id.org/i40/aml#InterfaceClassLib>;
   <http://www.w3.org/2000/01/rdf-schema#label> "AutomationMLInterfaceClassLib";
@@ -224,33 +234,38 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "Communication";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseInterface>,
     <https://w3id.org/i40/aml#InterfaceClass>;
-  <https://w3id.org/i40/aml#hasName> "Communication" .
+  <https://w3id.org/i40/aml#hasName> "Communication";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseInterface> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FCommunication%2FSignalInterface>
   <http://www.w3.org/2000/01/rdf-schema#label> "SignalInterface";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#Communication>,
     <https://w3id.org/i40/aml#InterfaceClass>;
-  <https://w3id.org/i40/aml#hasName> "SignalInterface" .
+  <https://w3id.org/i40/aml#hasName> "SignalInterface";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#Communication> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector>
   <http://www.w3.org/2000/01/rdf-schema#label> "ExternalDataConnector";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseInterface>,
     <https://w3id.org/i40/aml#InterfaceClass>;
   <https://w3id.org/i40/aml#hasAttribute> <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FrefURI>;
-  <https://w3id.org/i40/aml#hasName> "ExternalDataConnector" .
+  <https://w3id.org/i40/aml#hasName> "ExternalDataConnector";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseInterface> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FCOLLADAInterface>
   <http://www.w3.org/2000/01/rdf-schema#label> "COLLADAInterface";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#ExternalDataConnector>,
     <https://w3id.org/i40/aml#InterfaceClass>;
-  <https://w3id.org/i40/aml#hasName> "COLLADAInterface" .
+  <https://w3id.org/i40/aml#hasName> "COLLADAInterface";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#ExternalDataConnector> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FExternalDataReference>
   <http://www.w3.org/2000/01/rdf-schema#label> "ExternalDataReference";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#ExternalDataConnector>,
     <https://w3id.org/i40/aml#InterfaceClass>;
   <https://w3id.org/i40/aml#hasAttribute> <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FExternalDataReference%2FMIMEType>;
-  <https://w3id.org/i40/aml#hasName> "ExternalDataReference" .
+  <https://w3id.org/i40/aml#hasName> "ExternalDataReference";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#ExternalDataConnector> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FExternalDataReference%2FMIMEType>
   a <https://w3id.org/i40/aml#Attribute>, <https://w3id.org/i40/aml#AutomationMLBaseAttributeTypeLib%2FMIMEType>;
@@ -264,7 +279,8 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "PLCopenXMLInterface";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#ExternalDataConnector>,
     <https://w3id.org/i40/aml#InterfaceClass>;
-  <https://w3id.org/i40/aml#hasName> "PLCopenXMLInterface" .
+  <https://w3id.org/i40/aml#hasName> "PLCopenXMLInterface";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#ExternalDataConnector> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FrefURI>
   a <https://w3id.org/i40/aml#Attribute>, <https://w3id.org/i40/aml#AutomationMLBaseAttributeTypeLib%2FrefURI>;
@@ -279,7 +295,8 @@
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseInterface>,
     <https://w3id.org/i40/aml#InterfaceClass>;
   <https://w3id.org/i40/aml#hasAttribute> <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FOrder%2FDirection>;
-  <https://w3id.org/i40/aml#hasName> "Order" .
+  <https://w3id.org/i40/aml#hasName> "Order";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseInterface> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FOrder%2FDirection>
   a <https://w3id.org/i40/aml#Attribute>, <https://w3id.org/i40/aml#AutomationMLBaseAttributeTypeLib%2FDirection>;
@@ -293,7 +310,8 @@
   <http://www.w3.org/2000/01/rdf-schema#label> "PPRConnector";
   <http://www.w3.org/2000/01/rdf-schema#subClassOf> <https://w3id.org/i40/aml#AutomationMLBaseInterface>,
     <https://w3id.org/i40/aml#InterfaceClass>;
-  <https://w3id.org/i40/aml#hasName> "PPRConnector" .
+  <https://w3id.org/i40/aml#hasName> "PPRConnector";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseInterface> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort>
   <http://www.w3.org/2000/01/rdf-schema#label> "Port";
@@ -302,7 +320,8 @@
   <https://w3id.org/i40/aml#hasAttribute> <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort%2FCardinality>,
     <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort%2FCategory>,
     <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort%2FDirection>;
-  <https://w3id.org/i40/aml#hasName> "Port" .
+  <https://w3id.org/i40/aml#hasName> "Port";
+  <https://w3id.org/i40/aml#hasRefBaseClass> <https://w3id.org/i40/aml#AutomationMLBaseInterface> .
 
 <https://w3id.org/i40/aml#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort%2FCardinality>
   a <https://w3id.org/i40/aml#Attribute>, <https://w3id.org/i40/aml#AutomationMLBaseAttributeTypeLib%2FCardinality>;

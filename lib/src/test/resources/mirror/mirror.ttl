@@ -1,8 +1,9 @@
 
 <https://w3id.org/i40/aml#01fe88c7-9be1-4b48-afa3-c69d326561b6> a <https://w3id.org/i40/aml#InternalElement>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Screw";
-  <https://w3id.org/i40/aml#hasBaseSystemUnitClass> <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43>;
-  <https://w3id.org/i40/aml#hasName> "Screw" .
+  <https://w3id.org/i40/aml#hasMasterObject> <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43>;
+  <https://w3id.org/i40/aml#hasName> "Screw";
+  <https://w3id.org/i40/aml#hasRefBaseSystemUnitClass> <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43> .
 
 <https://w3id.org/i40/aml#PPRExampleInstanceHierarchy> a <https://w3id.org/i40/aml#InstanceHierarchy>;
   <http://www.w3.org/2000/01/rdf-schema#label> "PPRExampleInstanceHierarchy";
@@ -33,5 +34,6 @@
 
 <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43> a <https://w3id.org/i40/aml#InternalElement>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Screw";
-  <https://w3id.org/i40/aml#hasBaseSystemUnitClass> <https://w3id.org/i40/aml#PPRExampleSystemUnitClassLib%2FPPRProductSUC>;
-  <https://w3id.org/i40/aml#hasName> "Screw" .
+  <https://w3id.org/i40/aml#hasMirrorObject> <https://w3id.org/i40/aml#01fe88c7-9be1-4b48-afa3-c69d326561b6>;
+  <https://w3id.org/i40/aml#hasName> "Screw";
+  <https://w3id.org/i40/aml#hasRefBaseSystemUnitClass> <https://w3id.org/i40/aml#PPRExampleSystemUnitClassLib%2FPPRProductSUC> .
