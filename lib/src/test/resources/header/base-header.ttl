@@ -1,0 +1,5 @@
+
+<https://w3id.org/i40/aml#AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0_CAEX3.aml>
+  a <https://w3id.org/i40/aml#CAEXFile>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0_CAEX3.aml";
+  <https://w3id.org/i40/aml#hasSchemaVersion> "3.0" .

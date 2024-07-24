@@ -1,0 +1,10 @@
+
+<https://w3id.org/i40/aml#382cb433-1912-4bcf-81a0-648304259e94> a <https://w3id.org/i40/aml#InternalElement>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "Daimler";
+  <https://w3id.org/i40/aml#hasName> "Daimler" .
+
+<https://w3id.org/i40/aml#AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0>
+  a <https://w3id.org/i40/aml#InstanceHierarchy>;
+  <http://www.w3.org/2000/01/rdf-schema#label> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0";
+  <https://w3id.org/i40/aml#hasInternalElement> <https://w3id.org/i40/aml#382cb433-1912-4bcf-81a0-648304259e94>;
+  <https://w3id.org/i40/aml#hasName> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" .
