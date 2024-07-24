@@ -27,6 +27,33 @@
 # shell command to execute mappings:
 # java -jar .\rmlmapper-6.1.3-r367-all.jar -c .\config.properties
 
+#OntologyMapping and Imports
+# :MainTriplesMap a rr:TriplesMap;
+#     rml:logicalSource [
+#         rml:source "${AMLFileToMap}";
+#         rml:referenceFormulation ql:XPath;
+#         rml:iterator "/CAEXFile"
+#     ];
+#     rr:subjectMap [
+#         rr:constant <http://example.com/predicate/staticOntology>;
+#         #TODO: add Ontology Name
+#     ];
+    
+#     rr:predicateObjectMap [
+#         rr:predicate rdf:type;
+#         rr:objectMap [
+#             rr:constant owl:Ontology
+#         ];
+#     ];
+#     rr:predicateObjectMap [
+#         rr:predicate owl:imports;
+#         rr:objectMap [
+#             rr:constant <http://www.w3id.org/hsu-aut/automationml/>
+#             #TODO: adjust Constant based on published IRI
+#         ];
+#     ];
+#     .
+
 #CAEXFile Mappings:
 :CAEXFileTriplesMap a rr:TriplesMap;
     rml:logicalSource [
@@ -52,8 +79,47 @@
     ];
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
+        rr:predicate aml:hasFileName;        
         rr:objectMap [
             rml:reference "@FileName"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasOrigin;
+        rr:objectMap [
+            rr:parentTriplesMap :OriginTriplesMap
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasLastWritingDateTime;
+        rr:objectMap [
+            rml:reference "./SourceDocumentInformation/@LastWritingDateTime";
+            rr:datatype xsd:dateTime
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasExternalReference;
+        rr:objectMap [
+            rr:parentTriplesMap :ExternalReferenceTriplesMap
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasAdditionalInformation;
+        rr:objectMap [
+            rml:reference """
+            string-join(
+                for $attr in ./AdditionalInformation/@*
+                return concat(name($attr), '="', $attr, '"'),
+                ' '
+            )
+            """;
+            rr:datatype xsd:string
+        ]
+    ];    
+    rr:predicateObjectMap [
+        rr:predicate aml:hasProject;
+        rr:objectMap [
+            rr:parentTriplesMap :ProjectTriplesMap
         ]
     ];
     rr:predicateObjectMap [
@@ -87,6 +153,114 @@
         ]                
     ].
 
+#Origin Mappings:
+:OriginTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/SourceDocumentInformation"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@OriginID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:Origin
+        ]
+    ];    
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label; 
+        rr:predicate aml:hasName;
+        rr:predicate aml:hasOriginName;                    
+        rr:objectMap [
+            rml:reference "@OriginName"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasOriginVersion;                    
+        rr:objectMap [
+            rml:reference "@OriginVersion"
+        ]
+    ];  
+    rr:predicateObjectMap [
+        rr:predicate aml:hasOriginRelease;                    
+        rr:objectMap [
+            rml:reference "@OriginRelease"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasOriginVendor;                    
+        rr:objectMap [
+            rml:reference "@OriginVendor"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasOriginVendorURL;                    
+        rr:objectMap [
+            rml:reference "@OriginVendorURL"
+        ]
+    ];                
+    .
+
+#Project Mappings:
+:ProjectTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{./SourceDocumentInformation[translate(@OriginProjectID,'unspecified','')]/@OriginProjectID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:Project
+        ]
+    ];    
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label; 
+        rr:predicate aml:hasOriginProjectTitle;                    
+        rr:objectMap [
+            rml:reference "./SourceDocumentInformation/@OriginProjectTitle"
+        ]
+    ];             
+    .
+
+#ExternalReference Mappings:
+:ExternalReferenceTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/ExternalReference"
+    ];
+
+    rr:subjectMap [
+        rr:template "https://w3id.org/i40/aml#{@Path}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:constant aml:ExternalReference
+        ]
+    ];    
+    rr:predicateObjectMap [ 
+        rr:predicate rdfs:label;  
+        rr:predicate aml:hasExternalReferencePath;                    
+        rr:objectMap [
+            rml:reference "@Path"
+        ]
+    ];   
+    rr:predicateObjectMap [ 
+        rr:predicate aml:hasExternalReferenceAlias;                    
+        rr:objectMap [
+            rml:reference "@Alias"
+        ]
+    ];             
+    .
 
 #InstanceHierarchy Mappings:
 :InstanceHierarchyTriplesMap a rr:TriplesMap;
@@ -166,7 +340,7 @@
         ]
     ]; 
     rr:predicateObjectMap [
-        rr:predicate rdf:type;
+        # rr:predicate rdf:type;
         rr:predicate aml:hasRoleRequirement;
         rr:objectMap [
             rr:template "https://w3id.org/i40/aml#{./RoleRequirements/@RefBaseRoleClassPath}"          
@@ -538,7 +712,7 @@
         rml:iterator "/CAEXFile//InternalElement/InternalLink"
     ];
     rr:subjectMap [
-        rr:template "https://w3id.org/i40/aml#{@Name}";
+        rr:template "https://w3id.org/i40/aml#{string-join(ancestor-or-self::*/@Name, '/')}";
     ];
     rr:predicateObjectMap [
         rr:predicate rdf:type;
