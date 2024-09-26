@@ -7,6 +7,18 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.jena.graph.Node;
+import org.apache.jena.graph.NodeFactory;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.DatasetFactory;
+import org.apache.jena.query.ReadWrite;
+import org.apache.jena.rdf.model.Model;
+import org.apache.jena.rdf.model.ModelFactory;
+import org.apache.jena.sparql.core.DatasetGraph;
+import org.apache.jena.sparql.core.DatasetGraphFactory;
+import org.apache.jena.update.UpdateAction;
+import org.apache.jena.update.UpdateFactory;
+import org.apache.jena.update.UpdateRequest;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,9 +81,11 @@ public class AmlOwlMapper {
 
 			// Execute the mapping
 			QuadStore mappedQuads = executor.execute(null).get(new NamedNode("rmlmapper://default.store"));
+			
+			QuadStore updatedQuads = extendMappingResult(mappedQuads);
 
 			// Return the quads
-			return mappedQuads;
+			return updatedQuads;
 		} catch (Exception e) {
 			logger.error("An error happend while executing the RML mapping: " + e.toString());
 			throw new Exception("Error while mapping Aml2OWL mapping rules.\n" + e.toString()); 
@@ -85,6 +99,53 @@ public class AmlOwlMapper {
 	}
 
 
+	private QuadStore extendMappingResult(QuadStore mappedQuads) {
+		// Create a Jena Model from the mappedQuads
+        Model model = ModelFactory.createDefaultModel();
+        DatasetGraph datasetGraph = DatasetGraphFactory.create();
+        for (be.ugent.rml.store.Quad quad : mappedQuads.getQuads(null, null, null)) {
+        	Node subjectNode = NodeFactory.createURI(quad.getSubject().getValue());
+        	Node predicateNode = NodeFactory.createURI(quad.getPredicate().getValue());
+        	Node objectNode = NodeFactory.createURI(quad.getObject().getValue());
+        	
+        	datasetGraph.add(null, subjectNode, predicateNode, objectNode);
+        }
+        
+        Dataset dataset = DatasetFactory.wrap(datasetGraph);
+
+        // Apply SPARQL INSERT Queries
+        String sparqlUpdate = "INSERT DATA { GRAPH <http://example.org> { <http://example.org/subject> <http://example.org/predicate> <http://example.org/object> . } }";
+        UpdateRequest updateRequest = UpdateFactory.create(sparqlUpdate);
+
+        dataset.begin(ReadWrite.WRITE);
+        try {
+            UpdateAction.execute(updateRequest, dataset);
+            dataset.commit();
+        } finally {
+            dataset.end();
+        }
+
+        // Convert back to QuadStore if needed
+        QuadStore updatedQuads = new RDF4JStore();
+
+        // Iterate over the quads in the DatasetGraph and add them to the QuadStore
+        datasetGraph.find().forEachRemaining(quad -> {
+        		NamedNode s = new NamedNode(quad.getSubject().getURI());
+        		NamedNode p = new NamedNode(quad.getPredicate().getURI());
+        		NamedNode o = new NamedNode(quad.getObject().getURI());
+            				
+        		updatedQuads.addQuad(
+                    new be.ugent.rml.store.Quad(
+                            null,
+                            s,
+                            p,
+                            o
+                    )
+            );
+        });
+        return updatedQuads;
+	}
+	
 	private String convertResultToString(QuadStore resultQuads) {
 		Writer sW = new StringWriter();
 		try {

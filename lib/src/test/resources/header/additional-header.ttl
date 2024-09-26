@@ -1,0 +1,3 @@
+
+<http://www.w3id.org/hsu-aut/MappingResult> a <http://www.w3.org/2002/07/owl#Ontology>;
+  <http://www.w3.org/2002/07/owl#imports> <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-AutomationML/v0.0.1/AutomationML.owl> .
