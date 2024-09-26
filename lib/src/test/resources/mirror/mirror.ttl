@@ -1,39 +1,39 @@
 
-<https://w3id.org/i40/aml#01fe88c7-9be1-4b48-afa3-c69d326561b6> a <https://w3id.org/i40/aml#InternalElement>;
+<https://w3id.org/hsu-aut/AutomationML##01fe88c7-9be1-4b48-afa3-c69d326561b6> a <https://w3id.org/hsu-aut/AutomationML##InternalElement>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Screw";
-  <https://w3id.org/i40/aml#hasMasterObject> <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43>;
-  <https://w3id.org/i40/aml#hasName> "Screw";
-  <https://w3id.org/i40/aml#hasRefBaseSystemUnitClass> <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43> .
+  <https://w3id.org/hsu-aut/AutomationML##hasMasterObject> <https://w3id.org/hsu-aut/AutomationML##ad5db25c-0f73-4e9f-8782-0ca28e319c43>;
+  <https://w3id.org/hsu-aut/AutomationML##hasName> "Screw";
+  <https://w3id.org/hsu-aut/AutomationML##hasRefBaseSystemUnitClass> <https://w3id.org/hsu-aut/AutomationML##ad5db25c-0f73-4e9f-8782-0ca28e319c43> .
 
-<https://w3id.org/i40/aml#PPRExampleInstanceHierarchy> a <https://w3id.org/i40/aml#InstanceHierarchy>;
+<https://w3id.org/hsu-aut/AutomationML##PPRExampleInstanceHierarchy> a <https://w3id.org/hsu-aut/AutomationML##InstanceHierarchy>;
   <http://www.w3.org/2000/01/rdf-schema#label> "PPRExampleInstanceHierarchy";
-  <https://w3id.org/i40/aml#hasInternalElement> <https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43>;
-  <https://w3id.org/i40/aml#hasName> "PPRExampleInstanceHierarchy" .
+  <https://w3id.org/hsu-aut/AutomationML##hasInternalElement> <https://w3id.org/hsu-aut/AutomationML##ad5db25c-0f73-4e9f-8782-0ca28e319c43>;
+  <https://w3id.org/hsu-aut/AutomationML##hasName> "PPRExampleInstanceHierarchy" .
 
-<https://w3id.org/i40/aml#PPRExampleSystemUnitClassLib> a <https://w3id.org/i40/aml#SystemUnitClassLib>;
+<https://w3id.org/hsu-aut/AutomationML##PPRExampleSystemUnitClassLib> a <https://w3id.org/hsu-aut/AutomationML##SystemUnitClassLib>;
   <http://www.w3.org/2000/01/rdf-schema#label> "PPRExampleSystemUnitClassLib";
-  <https://w3id.org/i40/aml#hasName> "PPRExampleSystemUnitClassLib";
-  <https://w3id.org/i40/aml#hasSystemUnitClass> <https://w3id.org/i40/aml#PPRExampleSystemUnitClassLib%2FPPRProductSUC> .
+  <https://w3id.org/hsu-aut/AutomationML##hasName> "PPRExampleSystemUnitClassLib";
+  <https://w3id.org/hsu-aut/AutomationML##hasSystemUnitClass> <https://w3id.org/hsu-aut/AutomationML##PPRExampleSystemUnitClassLib%2FPPRProductSUC> .
 
-<https://w3id.org/i40/aml#PPRExampleSystemUnitClassLib%2FPPRProductSUC> a <https://w3id.org/i40/aml#SystemUnitClass>;
+<https://w3id.org/hsu-aut/AutomationML##PPRExampleSystemUnitClassLib%2FPPRProductSUC> a <https://w3id.org/hsu-aut/AutomationML##SystemUnitClass>;
   <http://www.w3.org/2000/01/rdf-schema#label> "PPRProductSUC";
-  <https://w3id.org/i40/aml#hasID> "5717a780-5d5e-4970-8513-e45202f8114b";
-  <https://w3id.org/i40/aml#hasName> "PPRProductSUC" .
+  <https://w3id.org/hsu-aut/AutomationML##hasID> "5717a780-5d5e-4970-8513-e45202f8114b";
+  <https://w3id.org/hsu-aut/AutomationML##hasName> "PPRProductSUC" .
 
-<https://w3id.org/i40/aml#PPR_right_with_mirror.aml> a <https://w3id.org/i40/aml#CAEXFile>;
+<https://w3id.org/hsu-aut/AutomationML##PPR_right_with_mirror.aml> a <https://w3id.org/hsu-aut/AutomationML##CAEXFile>;
   <http://www.w3.org/2000/01/rdf-schema#label> "PPR_right_with_mirror.aml";
-  <https://w3id.org/i40/aml#hasInstanceHierarchy> <https://w3id.org/i40/aml#PPRExampleInstanceHierarchy>,
-    <https://w3id.org/i40/aml#ProductHierarchy>;
-  <https://w3id.org/i40/aml#hasSchemaVersion> "3.0";
-  <https://w3id.org/i40/aml#hasSystemUnitClassLib> <https://w3id.org/i40/aml#PPRExampleSystemUnitClassLib> .
+  <https://w3id.org/hsu-aut/AutomationML##hasInstanceHierarchy> <https://w3id.org/hsu-aut/AutomationML##PPRExampleInstanceHierarchy>,
+    <https://w3id.org/hsu-aut/AutomationML##ProductHierarchy>;
+  <https://w3id.org/hsu-aut/AutomationML##hasSchemaVersion> "3.0";
+  <https://w3id.org/hsu-aut/AutomationML##hasSystemUnitClassLib> <https://w3id.org/hsu-aut/AutomationML##PPRExampleSystemUnitClassLib> .
 
-<https://w3id.org/i40/aml#ProductHierarchy> a <https://w3id.org/i40/aml#InstanceHierarchy>;
+<https://w3id.org/hsu-aut/AutomationML##ProductHierarchy> a <https://w3id.org/hsu-aut/AutomationML##InstanceHierarchy>;
   <http://www.w3.org/2000/01/rdf-schema#label> "ProductHierarchy";
-  <https://w3id.org/i40/aml#hasInternalElement> <https://w3id.org/i40/aml#01fe88c7-9be1-4b48-afa3-c69d326561b6>;
-  <https://w3id.org/i40/aml#hasName> "ProductHierarchy" .
+  <https://w3id.org/hsu-aut/AutomationML##hasInternalElement> <https://w3id.org/hsu-aut/AutomationML##01fe88c7-9be1-4b48-afa3-c69d326561b6>;
+  <https://w3id.org/hsu-aut/AutomationML##hasName> "ProductHierarchy" .
 
-<https://w3id.org/i40/aml#ad5db25c-0f73-4e9f-8782-0ca28e319c43> a <https://w3id.org/i40/aml#InternalElement>;
+<https://w3id.org/hsu-aut/AutomationML##ad5db25c-0f73-4e9f-8782-0ca28e319c43> a <https://w3id.org/hsu-aut/AutomationML##InternalElement>;
   <http://www.w3.org/2000/01/rdf-schema#label> "Screw";
-  <https://w3id.org/i40/aml#hasMirrorObject> <https://w3id.org/i40/aml#01fe88c7-9be1-4b48-afa3-c69d326561b6>;
-  <https://w3id.org/i40/aml#hasName> "Screw";
-  <https://w3id.org/i40/aml#hasRefBaseSystemUnitClass> <https://w3id.org/i40/aml#PPRExampleSystemUnitClassLib%2FPPRProductSUC> .
+  <https://w3id.org/hsu-aut/AutomationML##hasMirrorObject> <https://w3id.org/hsu-aut/AutomationML##01fe88c7-9be1-4b48-afa3-c69d326561b6>;
+  <https://w3id.org/hsu-aut/AutomationML##hasName> "Screw";
+  <https://w3id.org/hsu-aut/AutomationML##hasRefBaseSystemUnitClass> <https://w3id.org/hsu-aut/AutomationML##PPRExampleSystemUnitClassLib%2FPPRProductSUC> .
