@@ -46,7 +46,7 @@
     rr:predicateObjectMap [
         rr:predicate owl:imports;
         rr:objectMap [
-            rr:constant <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-AutomationML/v0.0.1/AutomationML.owl>
+            rr:constant <https://w3id.org/hsu-aut/AutomationML>
         ];
     ];
     .
