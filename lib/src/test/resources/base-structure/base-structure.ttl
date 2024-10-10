@@ -1,21 +1,32 @@
-
-<http://www.w3id.org/hsu-aut/MappingResult> a <http://www.w3.org/2002/07/owl#Ontology>;
-  <http://www.w3.org/2002/07/owl#imports> <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-AutomationML/v0.0.1/AutomationML.owl> .
-
 <https://w3id.org/hsu-aut/AutomationML#AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0>
-  a <https://w3id.org/hsu-aut/AutomationML#InstanceHierarchy>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0";
-  <https://w3id.org/hsu-aut/AutomationML#hasName> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" .
+        a       <https://w3id.org/hsu-aut/AutomationML#InstanceHierarchy> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasName>
+                "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" .
 
-<https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib> a <https://w3id.org/hsu-aut/AutomationML#RoleClassLib>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "AutomationMLBaseRoleClassLib";
-  <https://w3id.org/hsu-aut/AutomationML#hasName> "AutomationMLBaseRoleClassLib" .
+<https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClassLib> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AutomationMLBaseRoleClassLib" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasName>
+                "AutomationMLBaseRoleClassLib" .
 
-<https://w3id.org/hsu-aut/AutomationML#Test> a <https://w3id.org/hsu-aut/AutomationML#AttributeTypeLib>,
-    <https://w3id.org/hsu-aut/AutomationML#SystemUnitClassLib>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Test";
-  <https://w3id.org/hsu-aut/AutomationML#hasName> "Test" .
+<http://www.w3id.org/hsu-aut/MappingResult>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <https://w3id.org/hsu-aut/AutomationML> .
 
-<https://w3id.org/hsu-aut/AutomationML#VDAInterfaceClassLib> a <https://w3id.org/hsu-aut/AutomationML#InterfaceClassLib>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "VDAInterfaceClassLib";
-  <https://w3id.org/hsu-aut/AutomationML#hasName> "VDAInterfaceClassLib" .
+<https://w3id.org/hsu-aut/AutomationML#VDAInterfaceClassLib>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClassLib> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "VDAInterfaceClassLib" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasName>
+                "VDAInterfaceClassLib" .
+
+<https://w3id.org/hsu-aut/AutomationML#Test>
+        a       <https://w3id.org/hsu-aut/AutomationML#SystemUnitClassLib> , <https://w3id.org/hsu-aut/AutomationML#AttributeTypeLib> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Test" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasName>
+                "Test" .

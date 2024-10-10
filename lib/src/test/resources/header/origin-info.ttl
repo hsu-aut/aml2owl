@@ -1,16 +1,28 @@
+<http://www.w3id.org/hsu-aut/MappingResult>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <https://w3id.org/hsu-aut/AutomationML> .
 
-<http://www.w3id.org/hsu-aut/MappingResult> a <http://www.w3.org/2002/07/owl#Ontology>;
-  <http://www.w3.org/2002/07/owl#imports> <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-AutomationML/v0.0.1/AutomationML.owl> .
+<https://w3id.org/hsu-aut/AutomationML#AML%20Gov>
+        a       <https://w3id.org/hsu-aut/AutomationML#Project> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Drei Strukturbeispiele fuer Ressourcensicht in der Montage" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasOriginProjectTitle>
+                "Drei Strukturbeispiele fuer Ressourcensicht in der Montage" .
 
-<https://w3id.org/hsu-aut/AutomationML#916578CA-FE0D-474E-A4FC-9E1719892369> a <https://w3id.org/hsu-aut/AutomationML#Origin>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "AutomationML Editor";
-  <https://w3id.org/hsu-aut/AutomationML#hasName> "AutomationML Editor";
-  <https://w3id.org/hsu-aut/AutomationML#hasOriginName> "AutomationML Editor";
-  <https://w3id.org/hsu-aut/AutomationML#hasOriginRelease> "6.2.2.0";
-  <https://w3id.org/hsu-aut/AutomationML#hasOriginVendor> "AutomationML e.V.";
-  <https://w3id.org/hsu-aut/AutomationML#hasOriginVendorURL> "www.AutomationML.org";
-  <https://w3id.org/hsu-aut/AutomationML#hasOriginVersion> "6.2.2.0" .
-
-<https://w3id.org/hsu-aut/AutomationML#AML%20Gov> a <https://w3id.org/hsu-aut/AutomationML#Project>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Drei Strukturbeispiele fuer Ressourcensicht in der Montage";
-  <https://w3id.org/hsu-aut/AutomationML#hasOriginProjectTitle> "Drei Strukturbeispiele fuer Ressourcensicht in der Montage" .
+<https://w3id.org/hsu-aut/AutomationML#916578CA-FE0D-474E-A4FC-9E1719892369>
+        a       <https://w3id.org/hsu-aut/AutomationML#Origin> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AutomationML Editor" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasName>
+                "AutomationML Editor" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasOriginName>
+                "AutomationML Editor" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasOriginRelease>
+                "6.2.2.0" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasOriginVendor>
+                "AutomationML e.V." ;
+        <https://w3id.org/hsu-aut/AutomationML#hasOriginVendorURL>
+                "www.AutomationML.org" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasOriginVersion>
+                "6.2.2.0" .

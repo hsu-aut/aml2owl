@@ -1,9 +1,13 @@
-
-<http://www.w3id.org/hsu-aut/MappingResult> a <http://www.w3.org/2002/07/owl#Ontology>;
-  <http://www.w3.org/2002/07/owl#imports> <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-AutomationML/v0.0.1/AutomationML.owl> .
+<http://www.w3id.org/hsu-aut/MappingResult>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <https://w3id.org/hsu-aut/AutomationML> .
 
 <https://w3id.org/hsu-aut/AutomationML#https%3A%2F%2F9t4kqL7NX8JsW6o%40automationml.ovgu.de%2Fpublic.php%2Fwebdav%2FAutomationML_Base_Libraries_AMLEd2_2.10.0.aml>
-  a <https://w3id.org/hsu-aut/AutomationML#ExternalReference>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "https://9t4kqL7NX8JsW6o@automationml.ovgu.de/public.php/webdav/AutomationML_Base_Libraries_AMLEd2_2.10.0.aml";
-  <https://w3id.org/hsu-aut/AutomationML#hasExternalReferenceAlias> "AutomationMLBaseLibrariesAMLEd2";
-  <https://w3id.org/hsu-aut/AutomationML#hasExternalReferencePath> "https://9t4kqL7NX8JsW6o@automationml.ovgu.de/public.php/webdav/AutomationML_Base_Libraries_AMLEd2_2.10.0.aml" .
+        a       <https://w3id.org/hsu-aut/AutomationML#ExternalReference> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "https://9t4kqL7NX8JsW6o@automationml.ovgu.de/public.php/webdav/AutomationML_Base_Libraries_AMLEd2_2.10.0.aml" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasExternalReferenceAlias>
+                "AutomationMLBaseLibrariesAMLEd2" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasExternalReferencePath>
+                "https://9t4kqL7NX8JsW6o@automationml.ovgu.de/public.php/webdav/AutomationML_Base_Libraries_AMLEd2_2.10.0.aml" .

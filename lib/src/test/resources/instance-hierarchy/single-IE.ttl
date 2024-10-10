@@ -1,13 +1,20 @@
-
-<http://www.w3id.org/hsu-aut/MappingResult> a <http://www.w3.org/2002/07/owl#Ontology>;
-  <http://www.w3.org/2002/07/owl#imports> <https://raw.githubusercontent.com/hsu-aut/IndustrialStandard-ODP-AutomationML/v0.0.1/AutomationML.owl> .
-
-<https://w3id.org/hsu-aut/AutomationML#382cb433-1912-4bcf-81a0-648304259e94> a <https://w3id.org/hsu-aut/AutomationML#InternalElement>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "Daimler";
-  <https://w3id.org/hsu-aut/AutomationML#hasName> "Daimler" .
+<http://www.w3id.org/hsu-aut/MappingResult>
+        a       <http://www.w3.org/2002/07/owl#Ontology> ;
+        <http://www.w3.org/2002/07/owl#imports>
+                <https://w3id.org/hsu-aut/AutomationML> .
 
 <https://w3id.org/hsu-aut/AutomationML#AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0>
-  a <https://w3id.org/hsu-aut/AutomationML#InstanceHierarchy>;
-  <http://www.w3.org/2000/01/rdf-schema#label> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0";
-  <https://w3id.org/hsu-aut/AutomationML#hasInternalElement> <https://w3id.org/hsu-aut/AutomationML#382cb433-1912-4bcf-81a0-648304259e94>;
-  <https://w3id.org/hsu-aut/AutomationML#hasName> "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" .
+        a       <https://w3id.org/hsu-aut/AutomationML#InstanceHierarchy> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasInternalElement>
+                <https://w3id.org/hsu-aut/AutomationML#382cb433-1912-4bcf-81a0-648304259e94> ;
+        <https://w3id.org/hsu-aut/AutomationML#hasName>
+                "AML_Gov_Daimler-Strukturbeispiel_Ressourcensicht_Montage_V2.0.0" .
+
+<https://w3id.org/hsu-aut/AutomationML#382cb433-1912-4bcf-81a0-648304259e94>
+        a       <https://w3id.org/hsu-aut/AutomationML#InternalElement> ;
+        <http://www.w3.org/2000/01/rdf-schema#label>
+                "Daimler" ;
+        <https://w3id.org/hsu-aut/AutomationML#hasName>
+                "Daimler" .
