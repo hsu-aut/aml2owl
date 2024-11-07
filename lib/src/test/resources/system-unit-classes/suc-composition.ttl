@@ -1,8 +1,9 @@
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FProcess>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Process" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Process" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -22,30 +23,29 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FCategory> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPPRConnector>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "PPRConnector" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "PPRConnector" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FCardinality>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Cardinality" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FCardinality%2FMinOccur> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FCardinality%2FMaxOccur> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Cardinality" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FAssociatedExternalValue>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "AssociatedExternalValue" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FAssociatedExternalValue%2FrefURI> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FAssociatedExternalValue%2FrefCAEXAttribute> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FAssociatedExternalValue%2FDirection> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -63,10 +63,9 @@
                 <https://w3id.org/hsu-aut/AutomationML#MySUCLib%2FMySUC> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "AutomationMLBaseRole" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "AutomationMLBaseRole" .
 
@@ -78,20 +77,22 @@
                 "refCAEXAttribute" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FCOLLADAInterface>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "COLLADAInterface" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> ;
+                <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "COLLADAInterface" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
                 <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Port" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort%2FDirection> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort%2FCategory> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FPort%2FCardinality> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -100,10 +101,11 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FGroup>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Group" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FGroup%2FAssociatedFacet> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -157,10 +159,11 @@
                 "Out" , "InOut" , "In" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FExternalData>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "ExternalData" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "ExternalData" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -178,10 +181,9 @@
                 <https://w3id.org/hsu-aut/AutomationML#5f6ddfdc-0270-472e-acb2-2ba56b4c5882> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FMIMEType>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "MIMEType" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasDataType>
                 "xs:string" ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -212,10 +214,11 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FDirection> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FProduct>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Product" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Product" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -233,10 +236,9 @@
                 "MaxOccur" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "AutomationMLBaseInterface" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "AutomationMLBaseInterface" .
 
@@ -264,10 +266,11 @@
                 <https://w3id.org/hsu-aut/AutomationML#MySUCLib> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "ExternalDataConnector" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FrefURI> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -276,28 +279,29 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FCommunication>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Communication" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Communication" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FOrderedListType>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "OrderedListType" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "OrderedListType" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FCommunication%2FSignalInterface>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "SignalInterface" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#Communication> ;
+                <https://w3id.org/hsu-aut/AutomationML#Communication> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "SignalInterface" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -330,20 +334,20 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FDirection> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FDirection>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Direction" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasDataType>
                 "xs:string" ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Direction" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FPLCopenXMLInterface>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "PLCopenXMLInterface" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> ;
+                <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "PLCopenXMLInterface" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -372,20 +376,20 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FCardinality> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FrefURI>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "refURI" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasDataType>
                 "xs:anyURI" ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "refURI" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure%2FProcessStructure>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "ProcessStructure" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#Structure> , <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
+                <https://w3id.org/hsu-aut/AutomationML#Structure> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "ProcessStructure" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -401,10 +405,11 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FrefURI> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FOrder>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Order" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FOrder%2FDirection> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -413,10 +418,9 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseInterface> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FDocLang>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "DocLang" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasDataType>
                 "xs:string" ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -434,60 +438,62 @@
                 "MaxOccur" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FLocalizedAttribute>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "LocalizedAttribute" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasDataType>
                 "xs:string" ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "LocalizedAttribute" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure%2FResourceStructure>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "ResourceStructure" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#Structure> , <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
+                <https://w3id.org/hsu-aut/AutomationML#Structure> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "ResourceStructure" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
                 <https://w3id.org/hsu-aut/AutomationML#Structure> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FFacet>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Facet" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Facet" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Structure" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Structure" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FAssociatedFacet>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "AssociatedFacet" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasDataType>
                 "xs:string" ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "AssociatedFacet" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FResource>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Resource" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> , <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
+                <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Resource" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -501,10 +507,9 @@
                 "MySUC_Component" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FCategory>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Category" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasDataType>
                 "xs:string" ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -528,10 +533,11 @@
                 "5.6.7.0" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib%2FAutomationMLBaseRole%2FStructure%2FProductStructure>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "ProductStructure" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#Structure> , <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
+                <https://w3id.org/hsu-aut/AutomationML#Structure> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "ProductStructure" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -560,10 +566,11 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FrefURI> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FExternalDataReference>
+        a       <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "ExternalDataReference" ;
         <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#InterfaceClass> , <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> ;
+                <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib%2FAutomationMLBaseInterface%2FExternalDataConnector%2FExternalDataReference%2FMIMEType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -572,10 +579,9 @@
                 <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib%2FListType>
+        a       <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "ListType" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#AttributeType> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "ListType" .
 

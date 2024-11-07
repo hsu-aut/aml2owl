@@ -13,8 +13,6 @@
                 "Screw" ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#PPRExampleInstanceHierarchy%2FScrew%2FVendor> ;
-        <https://w3id.org/hsu-aut/AutomationML#hasAttributeIE>
-                <https://w3id.org/hsu-aut/AutomationML#PPRExampleInstanceHierarchy%2FScrew%2FVendor> ;
         <https://w3id.org/hsu-aut/AutomationML#hasInterface>
                 <https://w3id.org/hsu-aut/AutomationML#92cb2e82-03c0-4b8a-9da7-e1c1bc5c488a> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
@@ -26,8 +24,6 @@
         a       <https://w3id.org/hsu-aut/AutomationML#PPRExampleInterfaceClassLib%2FProductProcessRelation> , <https://w3id.org/hsu-aut/AutomationML#ExternalInterface> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "RelatedProcess" ;
-        <https://w3id.org/hsu-aut/AutomationML#hasBaseInterfaceClass>
-                <https://w3id.org/hsu-aut/AutomationML#PPRExampleInterfaceClassLib%2FProductProcessRelation> ;
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "RelatedProcess" ;
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseClass>
@@ -72,10 +68,9 @@
                 "3.0" .
 
 <https://w3id.org/hsu-aut/AutomationML#PPRExampleRoleClassLib%2FPPRProduct>
+        a       <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "PPRProduct" ;
-        <http://www.w3.org/2000/01/rdf-schema#subClassOf>
-                <https://w3id.org/hsu-aut/AutomationML#RoleClass> ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttribute>
                 <https://w3id.org/hsu-aut/AutomationML#PPRExampleRoleClassLib%2FPPRProduct%2FVendor> ;
         <https://w3id.org/hsu-aut/AutomationML#hasInterface>

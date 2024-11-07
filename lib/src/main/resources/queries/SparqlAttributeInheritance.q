@@ -1,10 +1,11 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX : <https://w3id.org/i40/aml#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <https://w3id.org/hsu-aut/AutomationML#>
 
 INSERT { ?rcChild :hasAttribute ?parentAttr . }
 WHERE { 
-    ?rcChild rdfs:subClassOf :RoleClass.
-    ?rcParent rdfs:subClassOf :RoleClass.
+    ?rcChild rdf:type :RoleClass.
+    ?rcParent rdf:type :RoleClass.
 	#Inheritance over multiple Levels
 	?rcChild :hasRefBaseClass* ?rcParent. 
 	?rcParent :hasAttribute ?parentAttr.
@@ -21,8 +22,8 @@ WHERE {
 
 INSERT { ?icChild :hasAttribute ?parentAttr . }
 WHERE { 
-    ?icChild rdfs:subClassOf :InterfaceClass.
-    ?icParent rdfs:subClassOf :InterfaceClass.
+    ?icChild rdf:type :InterfaceClass.
+    ?icParent rdf:type :InterfaceClass.
 	#Inheritance over multiple Levels    
 	?icChild :hasRefBaseClass* ?icParent.
 	?icParent :hasAttribute ?parentAttr.
@@ -39,8 +40,8 @@ WHERE {
 
 INSERT { ?atChild :hasAttribute ?parentAttr . }
 WHERE { 
-    ?atChild rdfs:subClassOf :AttributeType.
-    ?atParent rdfs:subClassOf :AttributeType.
+    ?atChild rdf:type :AttributeType.
+    ?atParent rdf:type :AttributeType.
 	#Inheritance over multiple Levels    
 	?atChild :hasRefAttributeType* ?atParent.
 	?atParent :hasAttribute ?parentAttr.
@@ -57,8 +58,8 @@ WHERE {
 
 INSERT { ?sucChild :hasAttribute ?parentAttr . }
 WHERE { 
-    ?sucChild a :SystemUnitClass.
-    ?sucParent a :SystemUnitClass.
+    ?sucChild rdf:type :SystemUnitClass.
+    ?sucParent rdf:type :SystemUnitClass.
 	#Inheritance over multiple Levels    
 	?sucChild :hasRefBaseClass* ?sucParent.
 	?sucParent :hasAttribute ?parentAttr.

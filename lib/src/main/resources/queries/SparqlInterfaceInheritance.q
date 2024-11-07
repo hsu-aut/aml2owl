@@ -1,10 +1,11 @@
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX : <https://w3id.org/i40/aml#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX : <https://w3id.org/hsu-aut/AutomationML#>
 
 INSERT { ?rcChild :hasInterface ?parentInterface . }
 WHERE { 
-    ?rcChild rdfs:subClassOf :RoleClass.
-    ?rcParent rdfs:subClassOf :RoleClass.
+    ?rcChild rdf:type :RoleClass.
+    ?rcParent rdf:type :RoleClass.
 	#Inheritance over multiple Levels
 	?rcChild :hasRefBaseClass* ?rcParent. 
 	?rcParent :hasInterface ?parentInterface.
@@ -21,8 +22,8 @@ WHERE {
 
 INSERT { ?icChild :hasInterface ?parentInterface . }
 WHERE { 
-    ?icChild rdfs:subClassOf :InterfaceClass.
-    ?icParent rdfs:subClassOf :InterfaceClass.
+    ?icChild rdf:type :InterfaceClass.
+    ?icParent rdf:type :InterfaceClass.
 	#Inheritance over multiple Levels    
 	?icChild :hasRefBaseClass* ?icParent.
 	?icParent :hasInterface ?parentInterface.
@@ -39,8 +40,8 @@ WHERE {
 
 INSERT { ?sucChild :hasInterface ?parentInterface . }
 WHERE { 
-    ?sucChild a :SystemUnitClass.
-    ?sucParent a :SystemUnitClass.
+    ?sucChild rdf:type :SystemUnitClass.
+    ?sucParent rdf:type :SystemUnitClass.
 	#Inheritance over multiple Levels    
 	?sucChild :hasRefBaseClass* ?sucParent.
 	?sucParent :hasInterface ?parentInterface.

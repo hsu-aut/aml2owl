@@ -272,8 +272,7 @@
     ];
     rr:predicateObjectMap [
         rr:predicate rdfs:label; 
-        rr:predicate aml:hasName;
-        # rr:predicate aml:hasNameIH;                     
+        rr:predicate aml:hasName;                
         rr:objectMap [
             rml:reference "@Name"
         ]
@@ -310,21 +309,18 @@
     ]; 
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameIE;
         rr:predicate aml:hasName;        
         rr:objectMap [
             rml:reference "@Name"
         ]
     ];
     rr:predicateObjectMap [
-        # rr:predicate rdf:type;
         rr:predicate aml:hasRefBaseSystemUnitClass;
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseSystemUnitPath}";
         ]        
     ];
     rr:predicateObjectMap [
-        # rr:predicate aml:hasInterfaceIE;
         rr:predicate aml:hasInterface;        
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./ExternalInterface/@ID}"          
@@ -337,7 +333,6 @@
         ]
     ]; 
     rr:predicateObjectMap [
-        # rr:predicate rdf:type;
         rr:predicate aml:hasRoleRequirement;
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./RoleRequirements/@RefBaseRoleClassPath}"          
@@ -345,14 +340,12 @@
     ];
     rr:predicateObjectMap [
         rr:predicate rdf:type;
-        # rr:predicate aml:hasSupportedRoleClassIE; 
         rr:predicate aml:hasSupportedRoleClass;                
         rr:objectMap [  
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./SupportedRoleClass/@RefRoleClassPath}"                       
         ]
     ];
 	rr:predicateObjectMap [
-        rr:predicate aml:hasAttributeIE;
         rr:predicate aml:hasAttribute;
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
@@ -396,6 +389,66 @@
             rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}"                       
         ]
     ]. 
+
+# Groups
+:GroupTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement/InternalElement[RoleRequirements[@RefBaseRoleClassPath='AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group']]" 
+        # only select Internal elements, that have a RoleRequirement of AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}"; 
+		rr:class aml:Group       
+    ]. 
+
+:hasGroupTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement/InternalElement[RoleRequirements[@RefBaseRoleClassPath='AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group']]" 
+        # only select Internal elements, that have a RoleRequirement of AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{../@ID}"; 
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasGroup;                
+        rr:objectMap [  
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}"                       
+        ]
+    ].     
+
+# Facet
+:FacetTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement/InternalElement[RoleRequirements[@RefBaseRoleClassPath='AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet']]" 
+        # only select Internal elements, that have a RoleRequirement of AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}"; 
+		rr:class aml:Facet       
+    ]. 
+
+:hasFacetTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement/InternalElement[RoleRequirements[@RefBaseRoleClassPath='AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet']]" 
+        # only select Internal elements, that have a RoleRequirement of AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{../@ID}"; 
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasFacet;                
+        rr:objectMap [  
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}"                       
+        ]
+    ].        
 
 # MappingObjectsRoleRequirementsAttributes
 :MappingObjectRoleRequirementAttributesTriplesMap a rr:TriplesMap;
@@ -452,7 +505,6 @@
     ]; 
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameEI;
         rr:predicate aml:hasName;        
         rr:objectMap [
             rml:reference "@Name"
@@ -460,7 +512,6 @@
     ];
     rr:predicateObjectMap [
         rr:predicate rdf:type;
-        rr:predicate aml:hasBaseInterfaceClass;
         rr:predicate aml:hasRefBaseClass;        
         rr:objectMap [
 			rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseClassPath}"
@@ -474,7 +525,6 @@
         ]
 	];      
     rr:predicateObjectMap [
-        # rr:predicate aml:hasAttributeEI; 
         rr:predicate aml:hasAttribute;            
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
@@ -494,7 +544,6 @@
     ];
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameConstraint;
         rr:predicate aml:hasName;
         rr:objectMap [
             rml:reference "../@Name"
@@ -521,7 +570,6 @@
     ];
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameConstraint;
         rr:predicate aml:hasName;
         rr:objectMap [
             rml:reference "../@Name"
@@ -560,7 +608,6 @@
     ];
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameConstraint;
         rr:predicate aml:hasName;
         rr:objectMap [
             rml:reference "../@Name"
@@ -588,7 +635,6 @@
     
     rr:predicateObjectMap [
 		rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameAttribute;
         rr:predicate aml:hasName;        
         rr:objectMap [
             rml:reference "@Name"
@@ -647,7 +693,6 @@
         ]
 	];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasDefaultValueAttribute;
         rr:predicate aml:hasDefaultValue;        
         rr:objectMap [
             rml:reference "./DefaultValue";
@@ -668,7 +713,6 @@
         ]          
     ];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasRefSemAttribute;
         rr:predicate aml:hasSemanticRef;        
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./RefSemantic/@CorrespondingAttributePath}";
@@ -719,25 +763,39 @@
     ]; 
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameIL;
         rr:predicate aml:hasName;                
         rr:objectMap [
             rml:reference "@Name"
         ]
     ];    
     rr:predicateObjectMap [
-        # rr:predicate aml:hasRefPartnerSideA_Interface;
         rr:predicate aml:hasRefPartnerSideA;        
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefPartnerSideA}";  
         ]
     ];
     rr:predicateObjectMap [
-        # rr:predicate aml:hasRefPartnerSideB_Interface;
         rr:predicate aml:hasRefPartnerSideB;        
         rr:objectMap [ 
             rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefPartnerSideB}";                          
         ]
+    ].
+
+#InternalLink direct Mapping
+:InternalLinkDirectTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalLink"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefPartnerSideA}";
+    ];   
+    rr:predicateObjectMap [
+        rr:predicate aml:isLinkedTo;        
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefPartnerSideB}";  
+        ]                       
     ].
 
 #------------------------------MAPPING InterfaceClassLib------------------------------
@@ -756,8 +814,7 @@
 
     rr:predicateObjectMap [
         rr:predicate rdfs:label; 
-        rr:predicate aml:hasName;
-        # rr:predicate aml:hasNameICL;                     
+        rr:predicate aml:hasName;                   
         rr:objectMap [
             rml:reference "@Name"
         ]
@@ -784,7 +841,7 @@
         rr:template "https://w3id.org/hsu-aut/AutomationML#{string-join(ancestor-or-self::*/@Name, '/')}";
     ];   
 	rr:predicateObjectMap [
-        rr:predicate rdfs:subClassOf;
+        rr:predicate rdf:type;
         rr:objectMap [
             rr:constant <https://w3id.org/hsu-aut/AutomationML#InterfaceClass>;          
         ]        
@@ -805,15 +862,13 @@
 	];    
     rr:predicateObjectMap [
         rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameIC;
         rr:predicate aml:hasName;        
         rr:objectMap [
             rml:reference "@Name"
         ]
     ];
 	rr:predicateObjectMap [
-        rr:predicate aml:hasAttribute;        
-        # rr:predicate aml:hasAttributeIC;    
+        rr:predicate aml:hasAttribute;
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
         ]        
@@ -836,8 +891,7 @@
 
     rr:predicateObjectMap [
         rr:predicate rdfs:label; 
-        rr:predicate aml:hasName;
-        # rr:predicate aml:hasNameSUCL;                     
+        rr:predicate aml:hasName;                    
         rr:objectMap [
             rml:reference "@Name"
         ]
@@ -875,7 +929,6 @@
         ]
 	];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasPartSUC;
         rr:predicate aml:hasPart;        
         rr:objectMap [
 			rr:template "https://w3id.org/hsu-aut/AutomationML#{./InternalElement/@ID}"
@@ -883,21 +936,18 @@
 	];
 	rr:predicateObjectMap [
         rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameSUC;
         rr:predicate aml:hasName;        
         rr:objectMap [
             rml:reference "@Name"
         ]
     ];
 	rr:predicateObjectMap [
-        rr:predicate aml:hasID;
-        # rr:predicate aml:hasIDSUC;        
+        rr:predicate aml:hasID;    
         rr:objectMap [
             rml:reference "@ID"
         ]
     ];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasSupportedRoleClassSUC;
         rr:predicate aml:hasSupportedRoleClass;        
         rr:predicate rdf:type;
         rr:objectMap [
@@ -905,14 +955,12 @@
         ]
 	];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasInterfaceSUC;
         rr:predicate aml:hasInterface;
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./ExternalInterface/@ID}"          
         ]        
 	];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasAttributeSUC; 
         rr:predicate aml:hasAttribute;              
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
@@ -934,8 +982,7 @@
 	
     rr:predicateObjectMap [
         rr:predicate rdfs:label; 
-        rr:predicate aml:hasName;
-        # rr:predicate aml:hasNameRCL;                     
+        rr:predicate aml:hasName;                  
         rr:objectMap [
             rml:reference "@Name"
         ]
@@ -961,7 +1008,7 @@
     ];
 	
 	rr:predicateObjectMap [
-        rr:predicate rdfs:subClassOf;
+        rr:predicate rdf:type;
         rr:objectMap [
             rr:constant <https://w3id.org/hsu-aut/AutomationML#RoleClass>;          
         ]   
@@ -977,21 +1024,18 @@
 
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameRC;
         rr:predicate aml:hasName;        
         rr:objectMap [
             rml:reference "@Name"
         ]
     ];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasInterfaceRC;
         rr:predicate aml:hasInterface;        
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./ExternalInterface/@ID}"
 		]        
 	];
-	rr:predicateObjectMap [
-        # rr:predicate aml:hasAttributeRC;  
+	rr:predicateObjectMap [ 
         rr:predicate aml:hasAttribute;             
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
@@ -1012,8 +1056,7 @@
     ];
     rr:predicateObjectMap [
         rr:predicate rdfs:label; 
-        rr:predicate aml:hasName;
-        # rr:predicate aml:hasNameATL;                     
+        rr:predicate aml:hasName;                  
         rr:objectMap [
             rml:reference "@Name"
         ]
@@ -1040,9 +1083,13 @@
     ]; 
 	rr:predicateObjectMap [
         rr:predicate rdfs:subClassOf;
+        rr:predicate aml:hasRefAttributeType;
         rr:objectMap [
 			rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefAttributeType}";             
-        ];
+        ]
+	];
+	rr:predicateObjectMap [
+        rr:predicate rdf:type;
         rr:objectMap [
             rr:constant <https://w3id.org/hsu-aut/AutomationML#AttributeType>;          
         ]  
@@ -1050,14 +1097,12 @@
     #TODO: Add RefAttributeType as ObjectProperty
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
-        # rr:predicate aml:hasNameAT;
         rr:predicate aml:hasName;
         rr:objectMap [
             rml:reference "@Name"
         ]
 	];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasDataTypeAT;
         rr:predicate aml:hasDataType;        
         rr:objectMap [
             rml:reference "@AttributeDataType";
@@ -1089,7 +1134,6 @@
         ];
     ];
 	rr:predicateObjectMap [
-        # rr:predicate aml:hasAttributeAT;
         rr:predicate aml:hasAttribute;        
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
