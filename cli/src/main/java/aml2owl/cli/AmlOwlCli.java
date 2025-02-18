@@ -33,7 +33,7 @@ public class AmlOwlCli implements Runnable {
 			return;
 		}
 		
-		logger.info("Started PLC-Code Mapping to Skills");
+		logger.info("Started Mapping Process...");
 		Path amlFilePath = Path.of(fileName);
 		logger.info("fileName: " + amlFilePath);
 		AmlOwlMapper mapper = new AmlOwlMapper();
@@ -41,7 +41,7 @@ public class AmlOwlCli implements Runnable {
 		try {
 			String result = mapper.executeMappingAndReturnString(amlFilePath, baseIri);
 			writeFile(result, outputFilename);
-			logger.info("Completed PLC-Code Mapping to Skills");
+			logger.info("Completed Mapping");
 		} catch (Exception e) {
 			logger.error("Could not complete mapping. " + e.toString());
 			e.printStackTrace();
@@ -57,7 +57,7 @@ public class AmlOwlCli implements Runnable {
 	/**
 	 * Writes the mapped model to a file
 	 * 
-	 * @param mappedModel String containing the complete skill model
+	 * @param mappedModel String containing the complete AML ontology
 	 * @param filePath    Path to the file that will be created
 	 */
 	private void writeFile(String mappedModel, String filePath) {
