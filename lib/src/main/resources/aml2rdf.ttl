@@ -316,6 +316,7 @@
     ];
     rr:predicateObjectMap [
         rr:predicate aml:hasRefBaseSystemUnitClass;
+        rr:predicate rdf:type;
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseSystemUnitPath}";
         ]        
@@ -400,7 +401,7 @@
     ];
     rr:subjectMap [
         rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}"; 
-		rr:class aml:Group       
+		rr:class aml:Group      
     ]. 
 
 :hasGroupTriplesMap a rr:TriplesMap;
@@ -430,7 +431,7 @@
     ];
     rr:subjectMap [
         rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}"; 
-		rr:class aml:Facet       
+		rr:class aml:Facet     
     ]. 
 
 :hasFacetTriplesMap a rr:TriplesMap;
@@ -923,7 +924,8 @@
 		rr:class aml:SystemUnitClass
     ];
     rr:predicateObjectMap [
-        rr:predicate aml:hasRefBaseClass;        
+        rr:predicate aml:hasRefBaseClass;
+        rr:predicate rdfs:subClassOf;       
         rr:objectMap [
 			rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseClassPath}"
         ]
@@ -1094,7 +1096,6 @@
             rr:constant <https://w3id.org/hsu-aut/AutomationML#AttributeType>;          
         ]  
 	];
-    #TODO: Add RefAttributeType as ObjectProperty
 	rr:predicateObjectMap [
 		rr:predicate rdfs:label;
         rr:predicate aml:hasName;
@@ -1127,12 +1128,6 @@
             rml:reference "@Unit";
         ]
 	];
-	rr:predicateObjectMap [
-        rr:predicate aml:hasRefAttributeType;
-        rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefAttributeType}";
-        ];
-    ];
 	rr:predicateObjectMap [
         rr:predicate aml:hasAttribute;        
         rr:objectMap [
