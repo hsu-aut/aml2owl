@@ -35,23 +35,6 @@
 		</plugins>
 	</build>
 
-	<profiles>
-		<profile>
-			<id>plc-test</id>
-			<build>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-surefire-plugin</artifactId>
-						<version>3.2.1</version>
-						<configuration>
-							<excludesFile combine.self="override" />
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<dependencies>
 		<dependency>
@@ -76,9 +59,9 @@
 			<version>2.0.7</version>
 		</dependency>
 		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>2.0.7</version>
+		    <groupId>ch.qos.logback</groupId>
+		    <artifactId>logback-classic</artifactId>
+		    <version>1.5.18</version>
 		</dependency>
 
 		<!-- Test dependencies -->
