@@ -4,8 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.io.Writer;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -14,52 +12,36 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
-import java.util.Objects;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.apache.jena.graph.Node;
-import org.apache.jena.graph.NodeFactory;
-import org.apache.jena.query.Dataset;
-import org.apache.jena.query.DatasetFactory;
-import org.apache.jena.query.Query;
-import org.apache.jena.query.QueryExecution;
-import org.apache.jena.query.QueryExecutionFactory;
-import org.apache.jena.query.QueryFactory;
-import org.apache.jena.query.QuerySolution;
-import org.apache.jena.query.ReadWrite;
-import org.apache.jena.query.ResultSet;
-import org.apache.jena.rdf.model.Literal;
 import org.apache.jena.rdf.model.Model;
 import org.apache.jena.rdf.model.ModelFactory;
 import org.apache.jena.rdf.model.Property;
 import org.apache.jena.rdf.model.RDFNode;
 import org.apache.jena.rdf.model.Resource;
-import org.apache.jena.sparql.core.DatasetGraph;
-import org.apache.jena.sparql.core.DatasetGraphFactory;
 import org.apache.jena.update.UpdateAction;
-import org.apache.jena.update.UpdateExecutionFactory;
 import org.apache.jena.update.UpdateFactory;
 import org.apache.jena.update.UpdateRequest;
-import org.eclipse.rdf4j.model.Value;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import aml2owl.core.ModelStringWriter;
+import aml2owl.core.ResourceLoader;
 import be.ugent.rml.Executor;
 import be.ugent.rml.records.RecordsFactory;
 import be.ugent.rml.store.Quad;
 import be.ugent.rml.store.QuadStore;
 import be.ugent.rml.store.QuadStoreFactory;
 import be.ugent.rml.store.RDF4JStore;
-import be.ugent.rml.term.AbstractTerm;
 import be.ugent.rml.term.NamedNode;
 import be.ugent.rml.term.Term;
 
 public class AmlOwlMapper {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
-	static String mappingDefinition = "/aml2rdf.ttl";
+	static String mappingDefinition = "aml2rdf.ttl";
 
 	/**
 	 * Maps an AML document into an OWL ontology
@@ -71,7 +53,7 @@ public class AmlOwlMapper {
 	public Model executeMapping(Path amlSourcePath, String baseIri) throws Exception {
 
 		try {
-			InputStream mappingStream = this.getClass().getResourceAsStream(mappingDefinition);
+			InputStream mappingStream = ResourceLoader.loadResource(mappingDefinition);
 
 			// Load the mapping in a QuadStore
 			QuadStore rmlStore = QuadStoreFactory.read(mappingStream);
@@ -96,8 +78,8 @@ public class AmlOwlMapper {
 			// Set up the basepath for the records factory, i.e., the basepath for the
 			// (local file) data sources
 			String parent = amlSourcePath.getParent().toString();
-			RecordsFactory factory = new RecordsFactory(parent);
-
+			RecordsFactory factory = new RecordsFactory(parent, parent);
+			
 			// Set up the outputstore (needed when you want to output something else than nquads)
 			QuadStore outputStore = new RDF4JStore();
 
@@ -118,7 +100,7 @@ public class AmlOwlMapper {
 	
 	public String executeMappingAndReturnString(Path amlSourcePath, String baseIri) throws Exception {
 		Model model = this.executeMapping(amlSourcePath, baseIri);
-		String result = this.convertResultToString(model);
+		String result = ModelStringWriter.convertModelToString(model);
 		return result;
 	}
 
@@ -234,18 +216,4 @@ public class AmlOwlMapper {
         return queries;
     }
 	
-	
-
-	
-	private String convertResultToString(Model model) {
-		Writer sW = new StringWriter();
-		try {
-			model.write(sW, "turtle");
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		String resultString = sW.toString();
-		return resultString;
-	}
 }
