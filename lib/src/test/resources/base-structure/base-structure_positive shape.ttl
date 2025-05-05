@@ -1,0 +1,14 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix aml: <https://w3id.org/hsu-aut/AutomationML#> .
+@prefix test: <https://w3id.org/hsu-aut/AutomationML/tests#> .
+
+# A more or less useless SHACL shape that is only used to test that the validation can successfully fail
+# The shape requires every RoleClassLib to have exactly 2 rdfs:label 
+test:FailingShape
+    a sh:NodeShape ;
+    sh:targetClass aml:InterfaceClassLib ;
+    sh:property [
+        sh:path aml:hasName ;
+        sh:hasValue "VDAInterfaceClassLib";
+    ] .

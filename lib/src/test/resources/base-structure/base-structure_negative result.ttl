@@ -1,0 +1,23 @@
+PREFIX aml:     <https://w3id.org/hsu-aut/AutomationML#>
+PREFIX dash:    <http://datashapes.org/dash#>
+PREFIX graphql: <http://datashapes.org/graphql#>
+PREFIX owl:     <http://www.w3.org/2002/07/owl#>
+PREFIX rdf:     <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sh:      <http://www.w3.org/ns/shacl#>
+PREFIX swa:     <http://topbraid.org/swa#>
+PREFIX test:    <https://w3id.org/hsu-aut/AutomationML/tests#>
+PREFIX tosh:    <http://topbraid.org/tosh#>
+PREFIX xsd:     <http://www.w3.org/2001/XMLSchema#>
+
+[ rdf:type     sh:ValidationReport;
+  sh:conforms  false;
+  sh:result    [ rdf:type                      sh:ValidationResult;
+                 sh:focusNode                  aml:AutomationMLBaseRoleClassLib;
+                 sh:resultMessage              "Property needs to have at least 2 values, but found 1";
+                 sh:resultPath                 rdfs:label;
+                 sh:resultSeverity             sh:Violation;
+                 sh:sourceConstraintComponent  sh:MinCountConstraintComponent;
+                 sh:sourceShape                [] 
+               ]
+] .
