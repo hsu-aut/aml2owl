@@ -15,7 +15,7 @@ public class MirrorTest {
 
 	@Test
 	void testMirror() throws Exception {
-		Path mappingPath = Paths.get("mirror", "mirror.aml").toAbsolutePath();
+		Path mappingPath = Paths.get("src", "test", "resources", "mirror", "mirror.aml").toAbsolutePath();
 		AmlOwlMapper mapper = new AmlOwlMapper();
 		Model mappedModel= mapper.executeMapping(mappingPath, null);
 		
