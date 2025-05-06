@@ -42,13 +42,13 @@ import be.ugent.rml.term.Term;
 public class AmlOwlMapper {
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	static String mappingDefinition = "aml2rdf.ttl";
-
+	
 	/**
 	 * Maps an AML document into an OWL ontology
-	 * 
-	 * @param xmlSourceDocument Absolute path to a source document
-	 * @return
-	 * @throws Exception
+	 * @param amlSourcePath Absolute path to an AML file to be mapped into an OWL ontology
+	 * @param baseIri (optional) BaseIri for all generated individuals
+	 * @return An RDF {@link Model} containing the mapped AML information
+	 * @throws Exception In case the file cannot be found or there is an error during mapping
 	 */
 	public Model executeMapping(Path amlSourcePath, String baseIri) throws Exception {
 
@@ -98,6 +98,14 @@ public class AmlOwlMapper {
 		}
 	}
 	
+	
+	/**
+	 * Maps an AML document into an OWL ontology
+	 * @param amlSourcePath String with an absolute path to an AML file to be mapped into an OWL ontology
+	 * @param baseIri (optional) BaseIri for all generated individuals
+	 * @return An RDF {@link Model} containing the mapped AML information
+	 * @throws Exception In case the file cannot be found or there is an error during mapping
+	 */
 	public String executeMappingAndReturnString(Path amlSourcePath, String baseIri) throws Exception {
 		Model model = this.executeMapping(amlSourcePath, baseIri);
 		String result = ModelStringWriter.convertModelToString(model);
@@ -105,6 +113,17 @@ public class AmlOwlMapper {
 	}
 
 	
+	/**
+	 * Extends a model after mapping by applying SPARQL UPDATE queries with additional rules that are hard to define in RML
+	 * <p>
+	 * This method transfers all quads from the RML mapping result into a Jena model,
+	 * then loads SPARQL update queries from the classpath (typically from the <code>resources</code> folder)
+	 * and applies them to enrich or transform the model.
+	 * </p>
+	 *
+	 * @param quadStore The QuadStore containing the RML mapping result as quads.
+	 * @return A Jena Model with the original quads plus any updates from the SPARQL queries.
+	 */
 	public Model extendModelWithSparqlUpdates(QuadStore quadStore) {
 	    // We need a Jena model for querying. Create default one
 	    Model model = ModelFactory.createDefaultModel();

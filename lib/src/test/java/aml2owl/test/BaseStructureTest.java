@@ -1,11 +1,7 @@
 package aml2owl.test;
 
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
-
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -13,7 +9,6 @@ import org.apache.jena.rdf.model.Model;
 import org.junit.jupiter.api.Test;
 
 import aml2owl.checking.ShaclValidator;
-import aml2owl.core.ModelStringWriter;
 import aml2owl.core.ResourceLoader;
 import aml2owl.core.ShaclReportUtil;
 import aml2owl.mapping.AmlOwlMapper;
