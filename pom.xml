@@ -3,12 +3,15 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>de.hsu-hh.aut.aml2owl</groupId>
-	<artifactId>de.hsu-hh.aut.aml2owl.parent</artifactId>
+	<groupId>io.github.aljoshakoecher</groupId>
+	<artifactId>io.github.aljoshakoecher.aml2owl-parent</artifactId>
 	<version>${revision}</version>
+	<name>AML2OWL</name>
+	<description>Mapping of AutomationML models into OWL ontologies and SHACL validation of the generated models</description>
+	<url>https://github.com/hsu-aut/aml2owl</url>
 
 	<properties>
-		<revision>1.1.0</revision>
+		<revision>2.0.0</revision>
 	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
@@ -21,6 +24,45 @@
 		<module>cli</module>
 	</modules>
 
+	<developers>
+		<developer>
+			<name>Aljosha Koecher</name>
+			<email>aljosha.koecher@hsu-hh.de</email>
+			<organization>Helmut-Schmidt-University, Institute of Automation</organization>
+			<organizationUrl>http://www.hsu-hh.de/aut</organizationUrl>
+		</developer>
+		<developer>
+			<name>Tom Westermann</name>
+			<email>tom.westermann@hsu-hh.de</email>
+			<organization>Helmut-Schmidt-University, Institute of Automation</organization>
+			<organizationUrl>http://www.hsu-hh.de/aut</organizationUrl>
+		</developer>
+	</developers>
+
+	<licenses>
+		<license>
+			<name>MIT License</name>
+			<url>http://www.opensource.org/licenses/mit-license.php</url>
+		</license>
+	</licenses>
+	
+	<distributionManagement>
+  		<snapshotRepository>
+    		<id>ossrh</id>
+    		<url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+  		</snapshotRepository>
+  		<repository>
+	    	<id>ossrh</id>
+    		<url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+  		</repository>
+	</distributionManagement>
+	
+	<scm>
+		<connection>scm:git:git://github.com/hsu-aut/aml2owl</connection>
+		<developerConnection>scm:git:ssh://github.com/hsu-aut/aml2owl</developerConnection>
+		<url>https://github.com/hsu-aut/aml2owl</url>
+	</scm>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -29,6 +71,7 @@
 				<version>1.4.1</version>
 				<configuration>
 					<updatePomFile>true</updatePomFile>
+					<flattenMode>resolveCiFriendliesOnly</flattenMode>
 				</configuration>
 				<executions>
 					<execution>
@@ -47,7 +90,74 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.sonatype.plugins</groupId>
+				<artifactId>nexus-staging-maven-plugin</artifactId>
+				<version>1.7.0</version>
+				<extensions>true</extensions>
+				<configuration>
+					<serverId>ossrh</serverId>
+					 <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+    				 <autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<version>3.3.1</version>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar-no-fork</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<version>3.11.2</version>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
+	
+	<profiles>
+		<profile>
+			<id>release-sign-artifacts</id>
+			<activation>
+				<property>
+					<name>performRelease</name>
+					<value>true</value>
+				</property>
+			</activation>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-gpg-plugin</artifactId>
+						<version>3.2.7</version>
+						<executions>
+							<execution>
+								<id>sign-artifacts</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
 
 </project>
