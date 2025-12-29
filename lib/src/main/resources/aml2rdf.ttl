@@ -315,13 +315,6 @@
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate aml:hasRefBaseSystemUnitClass;
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseSystemUnitPath}";
-        ]        
-    ];
-    rr:predicateObjectMap [
         rr:predicate aml:hasInterface;        
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./ExternalInterface/@ID}"          
@@ -329,6 +322,7 @@
     ]; 
     rr:predicateObjectMap [
         rr:predicate "http://www.ontologydesignpatterns.org/cp/owl/partof.owl#hasPart";
+        rr:predicate "https://w3id.org/hsu-aut/AutomationML#hasPart";        
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./InternalElement/@ID}"                        
         ]
@@ -339,19 +333,60 @@
             rr:template "https://w3id.org/hsu-aut/AutomationML#{./RoleRequirements/@RefBaseRoleClassPath}"          
         ]
     ];
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:predicate aml:hasSupportedRoleClass;                
-        rr:objectMap [  
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{./SupportedRoleClass/@RefRoleClassPath}"                       
-        ]
-    ];
 	rr:predicateObjectMap [
         rr:predicate aml:hasAttribute;
         rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"
         ]
-    ]. 
+    ].
+
+# InternalElement RefBaseSystemUnitPath Mapping (only for InternalElements with @RefBaseSystemUnitPath)
+:InternalElementRefBaseSystemUnitPathTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement[@RefBaseSystemUnitPath and @RefBaseSystemUnitPath != '']"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasRefBaseSystemUnitClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseSystemUnitPath}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseSystemUnitPath}";
+        ];
+    ];
+    .
+
+# InternalElement SupportedRoleClass Mapping (only for InternalElements with SupportedRoleClass)
+:InternalElementSupportedRoleClassTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//InternalElement[./SupportedRoleClass]"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasSupportedRoleClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./SupportedRoleClass/@RefRoleClassPath}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./SupportedRoleClass/@RefRoleClassPath}";
+        ];
+    ];
+    .
 
 # MasterObjects
 :MasterObjectTriplesMap a rr:TriplesMap;
@@ -511,26 +546,43 @@
             rml:reference "@Name"
         ]
     ];
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:predicate aml:hasRefBaseClass;        
-        rr:objectMap [
-			rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseClassPath}"
-        ]
-    ];
     #TODO: Check nestedInterfaces
 	rr:predicateObjectMap [
-        rr:predicate aml:hasPart;        
+        rr:predicate aml:hasPart;
         rr:objectMap [
 			rr:template "https://w3id.org/hsu-aut/AutomationML#{./ExternalInterface/@ID}"
         ]
-	];      
+	];
     rr:predicateObjectMap [
-        rr:predicate aml:hasAttribute;            
+        rr:predicate aml:hasAttribute;
         rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
-        ]        
-    ]. 
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"
+        ]
+    ].
+
+# ExternalInterface RefBaseClassPath Mapping (only for ExternalInterfaces with @RefBaseClassPath)
+:ExternalInterfaceRefBaseClassTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile//ExternalInterface[@RefBaseClassPath and @RefBaseClassPath != '']"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{@ID}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasRefBaseClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseClassPath}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefBaseClassPath}";
+        ];
+    ];
+    .
 
 #NominalScaledTypeConstraints Mapping
 :NominalScaledTypeConstraintTriplesMap a rr:TriplesMap;
@@ -701,25 +753,44 @@
         ]
 	];
 	rr:predicateObjectMap [
+        rr:predicate aml:hasConstraint;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Constraint/string-join(ancestor-or-self::*/@Name, '/')}"
+        ]
+    ];
+	rr:predicateObjectMap [
+        rr:predicate aml:hasSemanticRef;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./RefSemantic/@CorrespondingAttributePath}";
+        ]
+    ];
+    .
+
+# Attribute RefAttributeType Mapping (only for Attributes that have @RefAttributeType)
+:AttributeRefTypeTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        # Only select Attributes that have @RefAttributeType and it's not empty
+        rml:iterator "/CAEXFile//Attribute[@RefAttributeType and @RefAttributeType != '']"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{string-join(ancestor-or-self::*/@Name, '/')}";
+    ];
+    rr:predicateObjectMap [
         rr:predicate aml:hasRefAttributeType;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefAttributeType}";
+        ];
+    ];
+    rr:predicateObjectMap [
         rr:predicate rdf:type;
         rr:objectMap [
             rr:template "https://w3id.org/hsu-aut/AutomationML#{@RefAttributeType}";
         ];
     ];
-	rr:predicateObjectMap [
-        rr:predicate aml:hasConstraint;
-        rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Constraint/string-join(ancestor-or-self::*/@Name, '/')}"     
-        ]          
-    ];
-	rr:predicateObjectMap [
-        rr:predicate aml:hasSemanticRef;        
-        rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{./RefSemantic/@CorrespondingAttributePath}";
-        ]          
-    ];    
-    . 
+    .
+
 #Ontology of Units of Measure Mapping
 :MeasureTriplesMap a rr:TriplesMap;
     rml:logicalSource [
@@ -950,24 +1021,41 @@
         ]
     ];
 	rr:predicateObjectMap [
-        rr:predicate aml:hasSupportedRoleClass;        
-        rr:predicate rdf:type;
+        rr:predicate aml:hasInterface;
         rr:objectMap [
-			rr:template "https://w3id.org/hsu-aut/AutomationML#{./SupportedRoleClass/@RefRoleClassPath}"
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./ExternalInterface/@ID}"
         ]
 	];
 	rr:predicateObjectMap [
-        rr:predicate aml:hasInterface;
+        rr:predicate aml:hasAttribute;
         rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{./ExternalInterface/@ID}"          
-        ]        
-	];
-	rr:predicateObjectMap [
-        rr:predicate aml:hasAttribute;              
-        rr:objectMap [
-            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"     
-        ]        
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./Attribute/string-join(ancestor-or-self::*/@Name, '/')}"
+        ]
 	].
+
+# SystemUnitClass SupportedRoleClass Mapping (only for SystemUnitClasses with SupportedRoleClass)
+:SystemUnitClassSupportedRoleClassTriplesMap a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "${AMLFileToMap}";
+        rml:referenceFormulation ql:XPath;
+        rml:iterator "/CAEXFile/SystemUnitClassLib//SystemUnitClass[./SupportedRoleClass]"
+    ];
+    rr:subjectMap [
+        rr:template "https://w3id.org/hsu-aut/AutomationML#{string-join(ancestor-or-self::*/@Name, '/')}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate aml:hasSupportedRoleClass;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./SupportedRoleClass/@RefRoleClassPath}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdf:type;
+        rr:objectMap [
+            rr:template "https://w3id.org/hsu-aut/AutomationML#{./SupportedRoleClass/@RefRoleClassPath}";
+        ];
+    ];
+    .
 
 #------------------------------MAPPING RoleClassLib------------------------------
 :RoleClassLibTriplesMap a rr:TriplesMap;
