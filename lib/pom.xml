@@ -8,7 +8,8 @@
 		<version>${revision}</version>
 	</parent>
 
-	<artifactId>io.github.aljoshakoecher.aml2owl-lib</artifactId>
+	<groupId>de.hsu-hh.aut.aml2owl</groupId>
+	<artifactId>de.hsu-hh.aut.aml2owl.lib</artifactId>
  	<name>Aml2Owl Library</name>
   	<description>A library with functions to automatically convert AutomationML models into OWL ontologies and validate these models using SHACL</description>
 
@@ -51,9 +52,7 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.8.0</version>
 				<configuration>
-					<source>21</source>
-					<target>21</target>
-					<!-- <release>14</release> -->
+					<release>11</release>
 				</configuration>
 			</plugin>
 			<plugin>
