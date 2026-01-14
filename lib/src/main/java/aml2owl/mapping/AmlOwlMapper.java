@@ -131,21 +131,24 @@ public class AmlOwlMapper {
 	    // Add all quads from the quadstore (= mapping result) to the Jena model
 	    for (Quad quad : quadStore.getQuads(null, null, null)) {
 	        // Get the quad subject (from RML) and create a Jena subject
-	    	String subject = quad.getSubject().getValue();
+	        // Decode %2F back to / for human-readable URIs
+	    	String subject = quad.getSubject().getValue().replace("%2F", "/");
 	        Resource subjectResource = model.createResource(subject);
 
 	        // Get the quad predicate (from RML) and create a Jena predicate
-	        String predicate = quad.getPredicate().getValue();
+	        // Decode %2F back to / for human-readable URIs
+	        String predicate = quad.getPredicate().getValue().replace("%2F", "/");
 	        Property predicateProperty = model.createProperty(predicate);
-	        
-	        // Get the quad (from RML) predicate and create a Jena predicate
+
+	        // Get the quad (from RML) object and create a Jena object
 	        Term object = quad.getObject();
 	        RDFNode newObject;
 	        if (object instanceof be.ugent.rml.term.Literal) {
 	        	newObject = model.createLiteral(((Term) object).getValue());
 	        }
 	        else {
-	        	newObject = model.createResource(((Term) object).getValue());
+	        	// Decode %2F back to / for human-readable URIs in object URIs as well
+	        	newObject = model.createResource(((Term) object).getValue().replace("%2F", "/"));
 	        }
 
 	        model.add(subjectResource, predicateProperty, newObject);

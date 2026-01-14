@@ -3,7 +3,7 @@
         <http://www.w3.org/2002/07/owl#imports>
                 <https://w3id.org/hsu-aut/AutomationML> .
 
-<https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib%2FPPRProductSUC>
+<https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib/PPRProductSUC>
         a       <https://w3id.org/hsu-aut/AutomationML#SystemUnitClass>;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "PPRProductSUC";
@@ -13,7 +13,7 @@
                 "PPRProductSUC" .
 
 <https://w3id.org/hsu-aut/AutomationML#ad5db25c-0f73-4e9f-8782-0ca28e319c43>
-        a       <https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib%2FPPRProductSUC> , <https://w3id.org/hsu-aut/AutomationML#InternalElement>;
+        a       <https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib/PPRProductSUC> , <https://w3id.org/hsu-aut/AutomationML#InternalElement>;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "Screw";
         <https://w3id.org/hsu-aut/AutomationML#hasMirrorObject>
@@ -21,7 +21,7 @@
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "Screw";
         <https://w3id.org/hsu-aut/AutomationML#hasRefBaseSystemUnitClass>
-                <https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib%2FPPRProductSUC> .
+                <https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib/PPRProductSUC> .
 
 <https://w3id.org/hsu-aut/AutomationML#PPRExampleInstanceHierarchy>
         a       <https://w3id.org/hsu-aut/AutomationML#InstanceHierarchy>;
@@ -39,7 +39,7 @@
         <https://w3id.org/hsu-aut/AutomationML#hasName>
                 "PPRExampleSystemUnitClassLib";
         <https://w3id.org/hsu-aut/AutomationML#hasSystemUnitClass>
-                <https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib%2FPPRProductSUC> .
+                <https://w3id.org/hsu-aut/AutomationML#PPRExampleSystemUnitClassLib/PPRProductSUC> .
 
 <https://w3id.org/hsu-aut/AutomationML#PPR_right_with_mirror.aml>
         a       <https://w3id.org/hsu-aut/AutomationML#CAEXFile>;
