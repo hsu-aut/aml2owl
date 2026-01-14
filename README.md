@@ -26,7 +26,7 @@ With Maven, it's very easy to use this library in your own projects. Releases ar
 <dependency>
 	<groupId>io.github.aljoshakoecher</groupId>
 	<artifactId>io.github.aljoshakoecher.aml2owl-lib</artifactId>
-	<version>2.0.0</version>
+	<version>3.0.0</version>
 </dependency>
 ```
 
@@ -68,6 +68,99 @@ The resulting `report` is a SHACL report object. If you want to quickly test whe
 Boolean conforms = ShaclReportUtil.isConforming(report);
 ```
 
+## Mapping Specification
+
+### RML Mapping Rules
+The complete mapping specification from AutomationML to OWL is defined using [RML (RDF Mapping Language)](https://rml.io/specs/rml/). The mapping rules can be found at:
+
+[`lib/src/main/resources/aml2rdf.ttl`](lib/src/main/resources/aml2rdf.ttl)
+
+This file defines how AutomationML XML elements are transformed into OWL 2 DL RDF triples. The initial RML mapping is supplemented with SPARQL UPDATE queries that perform additional transformations (e.g., inheritance expansion). These SPARQL queries are located at:
+
+[`lib/src/main/resources/queries/`](lib/src/main/resources/queries/)
+
+### Semantic Model
+
+The mapping follows these semantic conventions:
+
+**Classes (TBox)**:
+- `SystemUnitClass`, `RoleClass`, `InterfaceClass`, `AttributeType` → Mapped to OWL Classes
+- Class hierarchies are preserved using `rdfs:subClassOf`
+- Base class references (e.g., `@RefBaseClassPath`) create subclass relationships
+
+**Individuals (ABox)**:
+- `InternalElement` → Mapped to OWL Individuals (instances)
+- `ExternalInterface` → Mapped to OWL Individuals
+- `Attribute` instances → Mapped to OWL Individuals
+- Instances are typed according to their class references (e.g., `@RefBaseSystemUnitPath`)
+
+**URIs**:
+- All generated URIs use human-readable `/` separators instead of URL-encoded `%2F`
+- URI construction varies by element type:
+  - **Instance elements** (`InternalElement`, `ExternalInterface`): URIs use the `@ID` attribute, mimicking AutomationML's reference mechanism
+    - Example: `https://w3id.org/hsu-aut/AutomationML#{@ID}`
+  - **Class definitions** (`RoleClass`, `SystemUnitClass`, `InterfaceClass`, `AttributeType`): URIs use hierarchical paths constructed from `@Name` attributes
+    - Example: `https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Process`
+  - **Attribute instances**: URIs use hierarchical paths constructed from `@Name` attributes
+    - Example: `https://w3id.org/hsu-aut/AutomationML#ParentElement/ChildAttribute/NestedAttribute`
+
+**Ontology Import**:
+- Each mapped AML file imports the latest AutomationML ontology: `https://w3id.org/hsu-aut/AutomationML`
+
+### OWL 2 DL Profile
+The generated RDF conforms to the **OWL 2 DL** profile, enabling use with DL reasoners such as HermiT, Pellet, and FaCT++. Users can expect:
+- Type inference based on class hierarchies
+- Automatic classification of individuals
+- Consistency checking
+- Standard OWL 2 DL reasoning capabilities
+
+**Note**: Some AutomationML constructs use punning (same URI as both class and individual), which is valid in OWL 2 DL.
+
+### Mapping Coverage
+
+The mapping covers the core AutomationML specification elements:
+
+**Fully Supported**:
+- Core structure: `CAEXFile`, `InstanceHierarchy`, `InternalElement`
+- Composition and nesting: Nested `InternalElement` hierarchies via `aml:hasPart`, nested `Attribute` hierarchies, nested `ExternalInterface`
+- Header information: `SourceDocumentInformation`, `ExternalReference`, project metadata
+- All class libraries: `SystemUnitClassLib`, `RoleClassLib`, `InterfaceClassLib`, `AttributeTypeLib`
+- Class hierarchies: Class definitions with `@RefBaseClassPath` creating `rdfs:subClassOf` relationships
+- Role requirements: `RoleRequirements` with `@RefBaseRoleClassPath` mapped via `aml:hasRoleRequirement`
+- Interfaces: `ExternalInterface` with optional `@RefBaseClassPath` typing
+- Attributes: Full attribute support including nested attributes, data types, units, values, constraints
+- Attribute constraints: `NominalScaledType`, `OrdinalScaledType`, `UnknownType`
+- InternalLinks: `InternalLink` with partner references and direct `aml:isLinkedTo` relationships
+- Special patterns: Mirror/Master objects, Groups, Facets
+- Mapping objects: `AttributeNameMapping`, `InterfaceIDMapping` within `RoleRequirements/MappingObject`
+- Conditional mappings: `@RefBaseSystemUnitPath`, `@RefAttributeType`, `SupportedRoleClass`
+
+### SPARQL Post-Processing
+
+After the initial RML mapping, three SPARQL UPDATE queries expand the model with derived information:
+
+1. **Attribute Inheritance** (`SparqlAttributeInheritance.q`):
+   - Propagates attributes from parent classes to child classes across multi-level hierarchies
+   - Applies to `RoleClass`, `InterfaceClass`, `AttributeType`, and `SystemUnitClass`
+   - Respects attribute overriding: inherited attributes are only added if not already defined with the same name
+   - Uses transitive closure (`hasRefBaseClass*`) to handle inheritance chains
+
+2. **Interface Inheritance** (`SparqlInterfaceInheritance.q`):
+   - Propagates interfaces from parent classes to child classes across multi-level hierarchies
+   - Applies to `RoleClass`, `InterfaceClass`, and `SystemUnitClass`
+   - Respects interface overriding: inherited interfaces are only added if not already defined with the same name
+   - Uses transitive closure (`hasRefBaseClass*`) to handle inheritance chains
+
+3. **Mapping Object Resolution** (`SparqlMappingObject.q`):
+   - Creates direct `hasMappingObject` links between `InternalElement` attributes/interfaces and their corresponding `RoleClass` attributes/interfaces
+   - Matches based on name equality between the internal element's features and the role requirement's features
+   - Complements the explicit mapping objects defined in `RoleRequirements/MappingObject`
+
+### Known Limitations
+
+1. **External File References**: References to external AML files (via `ExternalReference/@Path`) are not currently resolved or imported. The external reference is recorded, but the mapper does not follow the reference to include content from external files in the generated ontology.
+2. **Revision History**: Change tracking and revision history elements are not currently mapped. Future versions could use PROV-O for provenance tracking.
+
 ## Tests
-Please have a look at the tests located [here](https://github.com/hsu-aut/aml2owl/tree/master/lib/src/test) if you need more examples. We're extending our test collection to make sure our mapper can robustly handle all subtleties of AutomationML. So please contact us if you have interesting test cases you want to include.
+Please have a look at the tests located [here](https://github.com/hsu-aut/aml2owl/tree/master/lib/src/test) if you need more examples. We're extending our test collection to make sure our mapper can robustly handle all subtleties of AutomationML. Please contact us if you have interesting test cases you want to include.
 

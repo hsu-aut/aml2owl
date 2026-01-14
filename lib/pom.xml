@@ -8,8 +8,7 @@
 		<version>${revision}</version>
 	</parent>
 
-	<groupId>de.hsu-hh.aut.aml2owl</groupId>
-	<artifactId>de.hsu-hh.aut.aml2owl.lib</artifactId>
+	<artifactId>io.github.aljoshakoecher.aml2owl-lib</artifactId>
  	<name>Aml2Owl Library</name>
   	<description>A library with functions to automatically convert AutomationML models into OWL ontologies and validate these models using SHACL</description>
 

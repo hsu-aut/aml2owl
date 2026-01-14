@@ -206,7 +206,7 @@ public class AmlOwlMapper {
         // The following code handles both cases
         if (directoryUrl != null && directoryUrl.getProtocol().equals("jar")) {
             // If the project was bundled and is executed as a jar
-            String jarPath = directoryUrl.getPath().substring(5, directoryUrl.getPath().indexOf("!")); // Get directory path within jar
+            String jarPath = java.net.URLDecoder.decode(directoryUrl.getPath().substring(5, directoryUrl.getPath().indexOf("!")), "UTF-8"); // Get directory path within jar
             try (JarFile jar = new JarFile(jarPath)) {
                 Enumeration<JarEntry> entries = jar.entries(); // Iterate over all entries 
                 while (entries.hasMoreElements()) {

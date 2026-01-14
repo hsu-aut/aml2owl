@@ -41,8 +41,8 @@
   
   <dependencies>
 		<dependency>
-			<groupId>de.hsu-hh.aut.aml2owl</groupId>
-			<artifactId>de.hsu-hh.aut.aml2owl.lib</artifactId>
+			<groupId>io.github.aljoshakoecher</groupId>
+			<artifactId>io.github.aljoshakoecher.aml2owl-lib</artifactId>
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>

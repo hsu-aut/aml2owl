@@ -706,19 +706,7 @@
             rml:reference "@AttributeDataType";
 			rr:datatype xsd:string
         ]
-    ];    
-    # Option 1: Uses the Unit definitions from the Ontology of Unit of Measures. 
-    # For a semantically rich description of Units, this is the preferred method. 
-    # Assumption: All Unit definitions in the AML-File use the unit names from the ontology of units of measure. 
-    # Disabled for compatibility. Uncomment to enable. 
-	# rr:predicateObjectMap [
-    #     rr:predicate om:hasUnit;
-    #     rr:objectMap [
-	# 		rr:template "http://www.ontology-of-units-of-measure.org/resource/om-2#{@Unit}";
-    #     ]
-	# ];
-    # Option 2: Use the unit as a data property. 
-    # Included for compatibility with aml-files, that do not use the unit names from the ontology of units of measure. 
+    ];     
 	rr:predicateObjectMap [
         rr:predicate aml:hasUnitName;
         rr:objectMap [
@@ -730,14 +718,7 @@
         rr:objectMap [
             rml:reference "./Value";
         ]
-	];
-	# rr:predicateObjectMap [
-    #     rr:predicate aml:hasUnitValue;
-    #     rr:objectMap [
-    #     rr:template "https://w3id.org/hsu-aut/AutomationML#{string-join(ancestor-or-self::*/@Name, '/')}"; 
-    #     # rr:template "https://w3id.org/hsu-aut/AutomationML#{string-join((ancestor-or-self::*/@Name, 'Measure'), '/')}";              
-    #     ]
-	# ];    
+	]; 
 	rr:predicateObjectMap [
         rr:predicate aml:hasAttributeDescription;
         rr:objectMap [
@@ -790,32 +771,6 @@
         ];
     ];
     .
-
-#Ontology of Units of Measure Mapping
-:MeasureTriplesMap a rr:TriplesMap;
-    rml:logicalSource [
-        rml:source "${AMLFileToMap}";
-        rml:referenceFormulation ql:XPath;
-        # rml:iterator "/CAEXFile//Attribute[@AttributeDataType = 'xs:unsignedInt' or @AttributeDataType = 'xs:double']"
-        rml:iterator "/CAEXFile//Attribute[matches(@AttributeDataType, '^(xs:double|xs:float|xs:int|xs:long|xs:short|xs:decimal|xs:integer|xs:nonNegativeInteger|xs:positiveInteger|xs:nonPositiveInteger|xs:negativeInteger|xs:unsignedInt|xs:unsignedLong|xs:unsignedShort)$')]"
-    ];
-    rr:subjectMap [
-        rr:template "https://w3id.org/hsu-aut/AutomationML#{string-join(ancestor-or-self::*/@Name, '/')}";
-		rr:class om:Measure
-    ];
-	rr:predicateObjectMap [
-        rr:predicate om:hasUnit;
-        rr:objectMap [
-			rr:template "http://www.ontology-of-units-of-measure.org/resource/om-2#{@Unit}";
-        ]
-	];   
-	rr:predicateObjectMap [
-        rr:predicate om:hasNumericalValue;
-        rr:objectMap [
-			rml:reference "./Value";
-            rr:datatype "xsd:float";
-        ]
-	].   
 
 #InternalLink Mapping
 :InternalLinkTriplesMap a rr:TriplesMap;
@@ -1198,18 +1153,6 @@
 			rr:datatype xsd:string
         ]
 	];
-    # Option 1: Uses the Unit definitions from the Ontology of Unit of Measures. 
-    # For a semantically rich description of Units, this is the preferred method. 
-    # Assumption: All Unit definitions in the AML-File use the unit names from the ontology of units of measure. 
-    # Disabled for compatibility. Uncomment to enable.   
-	# rr:predicateObjectMap [
-    #     rr:predicate aml:hasUnit;
-    #     rr:objectMap [
-	# 		rr:template "http://www.ontology-of-units-of-measure.org/resource/om-2#{@Unit}";
-    #     ]
-	# ];
-    # Option 2: Use the unit as a data property. 
-    # Included for compatibility with aml-files, that do not use the unit names from the ontology of units of measure. 
 	rr:predicateObjectMap [
         rr:predicate aml:hasUnitName;
         rr:objectMap [

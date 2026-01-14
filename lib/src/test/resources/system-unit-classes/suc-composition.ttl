@@ -225,7 +225,7 @@
                 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseRole> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib/Cardinality/MaxOccur>
-        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> , <http://www.ontology-of-units-of-measure.org/resource/om-2#Measure> ;
+        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "MaxOccur" ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttributeDataType>
@@ -354,7 +354,7 @@
                 <https://w3id.org/hsu-aut/AutomationML#ExternalDataConnector> .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLBaseAttributeTypeLib/Cardinality/MinOccur>
-        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> , <http://www.ontology-of-units-of-measure.org/resource/om-2#Measure> ;
+        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "MinOccur" ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttributeDataType>
@@ -427,7 +427,7 @@
                 "DocLang" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Port/Cardinality/MaxOccur>
-        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> , <http://www.ontology-of-units-of-measure.org/resource/om-2#Measure> ;
+        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "MaxOccur" ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttributeDataType>
@@ -586,7 +586,7 @@
                 "ListType" .
 
 <https://w3id.org/hsu-aut/AutomationML#AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Port/Cardinality/MinOccur>
-        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> , <http://www.ontology-of-units-of-measure.org/resource/om-2#Measure> ;
+        a       <https://w3id.org/hsu-aut/AutomationML#Attribute> ;
         <http://www.w3.org/2000/01/rdf-schema#label>
                 "MinOccur" ;
         <https://w3id.org/hsu-aut/AutomationML#hasAttributeDataType>
