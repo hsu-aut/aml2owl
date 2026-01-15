@@ -66,7 +66,7 @@ The resulting `report` is a SHACL report object. If you want to quickly test whe
 
 ```java`
 Boolean conforms = ShaclReportUtil.isConforming(report);
-```
+
 
 ## Mapping Specification
 
